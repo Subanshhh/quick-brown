@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
+    public bool isUpsideDown = false;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -33,19 +34,15 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // Jump
+        // Jump
         if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            float jumpDirection = isUpsideDown ? -1 : 1; // Jump DOWN if upside down
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpDirection);
         }
+
     }
 
-    // Optional: draw ground check in editor
-    private void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-    }
+
+
 }
