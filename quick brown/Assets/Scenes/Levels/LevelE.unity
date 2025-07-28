@@ -130,6 +130,7 @@ GameObject:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 267647444}
   - component: {fileID: 267647443}
   - component: {fileID: 267647442}
@@ -358,6 +359,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 438037544}
+=======
+  - component: {fileID: 127405251}
+>>>>>>> Stashed changes
 =======
   - component: {fileID: 127405251}
 >>>>>>> Stashed changes
@@ -1007,6 +1011,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -2027,6 +2032,9 @@ PrefabInstance:
   m_Modification:
     serializedVersion: 3
     m_TransformParent: {fileID: 438037544}
+=======
+    m_TransformParent: {fileID: 127405251}
+>>>>>>> Stashed changes
 =======
     m_TransformParent: {fileID: 127405251}
 >>>>>>> Stashed changes
