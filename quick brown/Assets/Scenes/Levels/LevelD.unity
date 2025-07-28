@@ -1770,12 +1770,24 @@ PrefabInstance:
       value: 'fox '
       objectReference: {fileID: 0}
     - target: {fileID: 8320406585075956589, guid: aae82b55936292f4b830ecb57445237e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320406585075956589, guid: aae82b55936292f4b830ecb57445237e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320406585075956589, guid: aae82b55936292f4b830ecb57445237e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320406585075956589, guid: aae82b55936292f4b830ecb57445237e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.718911
+      value: -9.58
       objectReference: {fileID: 0}
     - target: {fileID: 8320406585075956589, guid: aae82b55936292f4b830ecb57445237e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2514579
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 8320406585075956589, guid: aae82b55936292f4b830ecb57445237e, type: 3}
       propertyPath: m_LocalPosition.z
