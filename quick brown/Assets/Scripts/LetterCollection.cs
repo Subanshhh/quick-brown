@@ -15,6 +15,7 @@ public class LetterCollection : MonoBehaviour
         if (Keyboard.current[requiredKey].wasPressedThisFrame)
         {
             CollectLetter();
+            GameObject.Find("StarsGM").GetComponent<StarsScript>().FinishedLevel();
         }
     }
 
