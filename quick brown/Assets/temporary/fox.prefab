@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.9, y: -1.75, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1076211811840603341}
@@ -169,11 +169,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 14
+  dashForce: 22
+  dashCooldown: 1
+  dashCheckDistance: 1
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   groundCheck: {fileID: 1076211811840603341}
   groundCheckRadius: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  isUpsideDown: 0
 --- !u!1 &7289187561010276537
 GameObject:
   m_ObjectHideFlags: 0

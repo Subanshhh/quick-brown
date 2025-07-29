@@ -2413,6 +2413,10 @@ PrefabInstance:
       propertyPath: dashForce
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 950556057806186945, guid: aae82b55936292f4b830ecb57445237e, type: 3}
+      propertyPath: wallLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2142115152296832796, guid: aae82b55936292f4b830ecb57445237e, type: 3}
       propertyPath: m_Name
       value: 'fox '
