@@ -127,7 +127,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< Updated upstream
+
   - component: {fileID: 267647444}
   - component: {fileID: 267647443}
   - component: {fileID: 267647442}
@@ -356,9 +356,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 438037544}
-=======
+
   - component: {fileID: 127405251}
->>>>>>> Stashed changes
+
+
+  - component: {fileID: 127405251}
+
   m_Layer: 0
   m_Name: things
   m_TagString: Untagged
@@ -999,7 +1002,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-<<<<<<< Updated upstream
+
     m_TransformParent: {fileID: 438037544}
     m_Modifications:
     - target: {fileID: 1622800346652548546, guid: c00e41635618df94198010d0db71ff95, type: 3}
@@ -2017,9 +2020,12 @@ PrefabInstance:
   m_Modification:
     serializedVersion: 3
     m_TransformParent: {fileID: 438037544}
-=======
+
     m_TransformParent: {fileID: 127405251}
->>>>>>> Stashed changes
+
+
+    m_TransformParent: {fileID: 127405251}
+
     m_Modifications:
     - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3646,4 +3652,8 @@ SceneRoots:
   - {fileID: 1079371223294334653}
   - {fileID: 2095438424}
   - {fileID: 1034143814}
+
   - {fileID: 127405251}
+
+  
+
