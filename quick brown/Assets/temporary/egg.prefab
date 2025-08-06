@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7767539396453471755}
   - component: {fileID: 8362490186157522634}
   - component: {fileID: 2511363084252396405}
-  - component: {fileID: 4806837259381807671}
+  - component: {fileID: 7354268959404752544}
   m_Layer: 0
   m_Name: egg
-  m_TagString: Untagged
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &4806837259381807671
+--- !u!114 &7354268959404752544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,3 +138,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
+  eggID: 

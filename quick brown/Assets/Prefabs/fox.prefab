@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5963386035098918279}
   - component: {fileID: 3619917956985943245}
   - component: {fileID: 2708139191401573295}
+  - component: {fileID: 7131716826710892263}
   m_Layer: 0
   m_Name: fox
   m_TagString: Player
@@ -199,16 +200,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  acceleration: 50
+  airAcceleration: 30
   jumpForce: 14
-  dashForce: 60
-  dashCooldown: 1
-  dashCheckDistance: 1
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
   groundCheck: {fileID: 1610497731551273680}
   groundCheckRadius: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  dashSpeed: 20
+  dashDuration: 0.15
+  dashCooldown: 1
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  dashCheckDistance: 1
   isUpsideDown: 0
+--- !u!114 &7131716826710892263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534892035208938595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd820db5f101af4e9531368a4be584e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3476236341995942668}
+  lowerThreshold: -4
+  upperThreshold: 10

@@ -16,7 +16,7 @@ public class RestartOnTouch : MonoBehaviour
 
     private void RestartScene()
     {
-       
+        
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
     }
