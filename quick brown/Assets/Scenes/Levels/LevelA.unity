@@ -352,6 +352,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarsGM
       objectReference: {fileID: 0}
+    - target: {fileID: 3074194598914901334, guid: 534ab6d0c949d1d4e8b14c99f7e9bc68, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422858001374442418, guid: 534ab6d0c949d1d4e8b14c99f7e9bc68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7674194202737887541, guid: 534ab6d0c949d1d4e8b14c99f7e9bc68, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16
