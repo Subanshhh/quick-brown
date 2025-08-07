@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class StarsScript : MonoBehaviour
 {
-    [SerializeField] private GameObject Panel;
+    public GameObject Panel { get; private set; }
     [SerializeField] private Image Star0;
     [SerializeField] private Image Star1;
     [SerializeField] private Image Star2;
