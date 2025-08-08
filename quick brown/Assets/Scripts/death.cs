@@ -29,6 +29,11 @@ public class Death : MonoBehaviour
     {
         Debug.Log("Death animation playing");
 
+        Vector3 scale = transform.localScale;
+        scale.y = Mathf.Abs(scale.y);
+        transform.localScale = scale;
+
+
         deathParticles.Play();
         yield return new WaitWhile(() => deathParticles.isPlaying);
 
