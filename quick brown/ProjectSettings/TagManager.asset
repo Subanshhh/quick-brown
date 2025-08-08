@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Egg
+  - Deadly
   layers:
   - Default
   - TransparentFX

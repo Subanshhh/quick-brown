@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 332580072862769393}
   - component: {fileID: 1637198299711892827}
   - component: {fileID: 1414265064239218686}
-  - component: {fileID: -8726710964530122953}
   m_Layer: 0
   m_Name: mushroom
-  m_TagString: Untagged
+  m_TagString: Deadly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,15 +134,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &-8726710964530122953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4888509643486551125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c027fe82562f0441ae8cb22ba87a356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

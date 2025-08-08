@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8447676427257982890}
   - component: {fileID: 654455561391108554}
   - component: {fileID: 950556057806186945}
+  - component: {fileID: 3253822684476643074}
   m_Layer: 0
   m_Name: fox
   m_TagString: Player
@@ -168,19 +169,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  acceleration: 50
+  airAcceleration: 30
   jumpForce: 14
-  dashForce: 22
-  dashCooldown: 1
-  dashCheckDistance: 1
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
   groundCheck: {fileID: 1076211811840603341}
   groundCheckRadius: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  dashSpeed: 20
+  dashDuration: 0.15
+  dashCooldown: 1
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  dashCheckDistance: 1
   isUpsideDown: 0
+--- !u!114 &3253822684476643074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142115152296832796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c027fe82562f0441ae8cb22ba87a356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathTag: Deadly
 --- !u!1 &7289187561010276537
 GameObject:
   m_ObjectHideFlags: 0
