@@ -314,6 +314,8 @@ GameObject:
   - component: {fileID: 116608760}
   - component: {fileID: 116608759}
   - component: {fileID: 116608758}
+  - component: {fileID: 116608763}
+  - component: {fileID: 116608762}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -405,6 +407,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &116608762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116608757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f67c5e030454d34db91ee51713a7df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1480071339}
+  uiText: {fileID: 700697251}
+  moveThreshold: 0.1
+--- !u!114 &116608763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116608757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f67c5e030454d34db91ee51713a7df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1480071339}
+  uiText: {fileID: 439407911}
+  moveThreshold: 0.1
 --- !u!1001 &163064534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1036,63 +1068,6 @@ MonoBehaviour:
   player: {fileID: 1480071339}
   offset: {x: 0, y: 2.3, z: -10}
   smoothSpeed: 5
---- !u!1001 &538734652
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.064172
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.1237288
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 332580072862769393, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4888509643486551125, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
-      propertyPath: m_Name
-      value: mushroom (6)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7eb1864039572eb4195aa9129efc6ecc, type: 3}
 --- !u!1001 &556400666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2843,7 +2818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1480071339}
-  lowerThreshold: -4
+  lowerThreshold: -8
   upperThreshold: 30
 --- !u!1001 &1486692541
 PrefabInstance:
@@ -3506,7 +3481,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6524119281534640447, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3563,6 +3539,5 @@ SceneRoots:
   - {fileID: 1285450642}
   - {fileID: 1486692541}
   - {fileID: 1476555337}
-  - {fileID: 538734652}
   - {fileID: 1870227820}
   - {fileID: 655394748}
