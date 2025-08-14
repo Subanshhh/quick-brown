@@ -41,6 +41,66 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/LevelG.unity
     guid: 2fe001be1ac727e45a25380e4fe68c7c
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelH.unity
+    guid: bc42d891fa4c36d4684450a69887219e
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelI.unity
+    guid: e06fe45acca6984409d07f5d088beb04
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelJ.unity
+    guid: 0e58daf9a7e3bed428d09a7af7463fb5
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelK.unity
+    guid: 2419f2da297881f4a8474c74c2ba8607
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelL.unity
+    guid: 92294a38147975c4e8e1d76e822f20ee
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelM.unity
+    guid: d4cba6a09e263d44483ea242f9014009
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelN.unity
+    guid: 70aae0483c2857c40984b2bdab818885
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelO.unity
+    guid: e79d526c0a1ec4542b72f08dc139f4f6
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelP.unity
+    guid: bb0e73647aada49409c694a1c9d9f455
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelQ.unity
+    guid: e1cb25c1ab4fc6d4e8ff90cb40510c92
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelR.unity
+    guid: 0ca2ed077bf2d9a4db7a1167f4ce1277
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelS.unity
+    guid: 797e89ec9f952f7498c9ae26e8a76d3c
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelT.unity
+    guid: 1b532be35ab4502458b44d39ca410fa7
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelU.unity
+    guid: 793970b7eb5111043a2f7d8cf264fb9d
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelV.unity
+    guid: 7b43b02e7fefb2f46b947cf51b9a766e
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelW.unity
+    guid: 0a1f55d97a46fdc44abc51ffaf53ff1f
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelX.unity
+    guid: df4128d72e8eec34f982f45ae799236e
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelY.unity
+    guid: 1436938a63255194ab4fd878bc4a8bd9
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelZ.unity
+    guid: 86e6a8638d81e064c825823a11382bc4
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelAsterisk.unity
+    guid: d4422e857adcec8409156263624443b4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

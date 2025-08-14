@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 5555446478852249801}
   - component: {fileID: 3416193980339897605}
   - component: {fileID: 4983515564144277165}
+  - component: {fileID: 7867621166134348068}
   m_Layer: 5
   m_Name: Level Button
   m_TagString: Untagged
@@ -453,3 +454,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ef96a35e5ab59439f4975256961c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7867621166134348068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6755994669385654232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b4b33011d25f042b991a2cbf9e4d92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Star1: {fileID: 3484021583292057424}
+  Star2: {fileID: 6660319576281662781}
+  Star3: {fileID: 2392392186071640108}
+  StarCompletedSprite: {fileID: 21300000, guid: f4b8c2346c22bf9489be22c010bf7439, type: 3}
+  StarFailedSprite: {fileID: -7409536644873726750, guid: 062fae6628c6b7a47baeb46ead4ad56b, type: 3}

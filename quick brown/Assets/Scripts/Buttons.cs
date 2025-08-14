@@ -23,6 +23,19 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
     }
+    public void RemovePlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+    public void UnlockPlayerPrefs()
+    {
+        //all leters 
+        char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ* ".ToCharArray();
+        for (int i = 0; i < 27; i++)
+        {
+            PlayerPrefs.SetInt("Level" + alphabet[i] + "Stars", 3);
+        }
+    }
 
 
 }
