@@ -2224,6 +2224,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone
       objectReference: {fileID: 0}
+    - target: {fileID: 6443054877145888741, guid: 3b48a863b28124a4b8d7dfb277ab0459, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443054877145888741, guid: 3b48a863b28124a4b8d7dfb277ab0459, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7991694638754950922, guid: 3b48a863b28124a4b8d7dfb277ab0459, type: 3}
       propertyPath: m_LocalScale.y
       value: 4.4455156
