@@ -9,6 +9,9 @@ public class LevelSelectorGM : MonoBehaviour
     [SerializeField] private GameObject Panel;
 
     private char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ*".ToCharArray();
+    [SerializeField] private Sprite[] Letters;
+
+
     private void Awake()
     {
         for (int i = 0; i < 27; i++)
@@ -16,6 +19,7 @@ public class LevelSelectorGM : MonoBehaviour
             print(i + " = " + alphabet[i].ToString());   
             GameObject button = Instantiate(ButtonPrefab,Panel.transform);
             button.GetComponentInChildren<Text>().text = alphabet[i].ToString();
+            button.GetComponent<Image>().sprite = Letters[i];
 
             //if it has a key,
             if  (i == 0 || PlayerPrefs.HasKey("Level" + alphabet[i - 1].ToString() + "Stars") && i < 7) 

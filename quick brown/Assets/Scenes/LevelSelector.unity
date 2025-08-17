@@ -390,6 +390,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonPrefab: {fileID: 6755994669385654232, guid: 4941427e0fadc3148bc2aa748be8f49a, type: 3}
   Panel: {fileID: 612989515}
+  Letters:
+  - {fileID: -304139404708087922, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1330647021, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 1307999567, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 1372228505, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1828802167, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1586779733, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1241339423, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 1121900713, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 2084733188, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 1908958235, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 289292178, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 437137553, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1070943841, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1085345797, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -557352666, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 1840815204, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 337546561, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1277062858, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1530335660, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -2096028328, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 644876656, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -695294353, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1331895469, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -163702265, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: -1567088489, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 1575773726, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
+  - {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &198492822
 GameObject:
   m_ObjectHideFlags: 0
