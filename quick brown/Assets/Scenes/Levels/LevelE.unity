@@ -359,13 +359,17 @@ PrefabInstance:
       propertyPath: requiredKey
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 2670649321019308264, guid: ee45552505a3224419b8dd8d8d54efff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1828802167, guid: f503f44e5c9a00a459d774883ce8a2aa, type: 3}
     - target: {fileID: 5976940506934578355, guid: ee45552505a3224419b8dd8d8d54efff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05223179
       objectReference: {fileID: 0}
     - target: {fileID: 5976940506934578355, guid: ee45552505a3224419b8dd8d8d54efff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8117073
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 5976940506934578355, guid: ee45552505a3224419b8dd8d8d54efff, type: 3}
       propertyPath: m_LocalPosition.z

@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private float lastDashTime = -Mathf.Infinity;
     private bool jumpPressed;
     public bool isUpsideDown = false;
+   
+
 
     void Start()
     {
