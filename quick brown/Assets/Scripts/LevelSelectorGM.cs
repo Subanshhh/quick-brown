@@ -25,7 +25,7 @@ public class LevelSelectorGM : MonoBehaviour
             if  (i == 0 || PlayerPrefs.HasKey("Level" + alphabet[i - 1].ToString() + "Stars") && i < 7) 
             {
                 button.GetComponent<Button>().interactable = true;
-                PlayerPrefs.SetInt("LettersCollected", i+1);
+                PlayerPrefs.SetInt("LettersCollected", i);
             }
             else 
             { 
