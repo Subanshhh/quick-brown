@@ -160,10 +160,10 @@ TextureImporter:
       name: alphabets_2
       rect:
         serializedVersion: 2
-        x: 222
-        y: 309
+        x: 223
+        y: 314
         width: 65
-        height: 66
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,9 +183,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 360
-        y: 312
+        y: 315
         width: 68
-        height: 63
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,9 +205,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 479
-        y: 311
+        y: 314
         width: 67
-        height: 61
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
