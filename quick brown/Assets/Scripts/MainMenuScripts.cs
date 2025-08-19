@@ -11,7 +11,12 @@ public class MainMenuScripts : MonoBehaviour
 
     private void Update()
     {
-        LettersCollected.text = (PlayerPrefs.GetInt("LettersCollected").ToString() ) +"/" + TotalLevels.ToString();
+        int letterscollected = (PlayerPrefs.GetInt("LettersCollected", 0) - 1);
+        if (letterscollected < 0)
+        {
+            letterscollected = 0;
+        }
+        LettersCollected.text = (letterscollected.ToString()) + "/" + TotalLevels.ToString();
     }
 
 
