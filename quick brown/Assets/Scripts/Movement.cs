@@ -42,8 +42,12 @@ public class PlayerMovement : MonoBehaviour
     {
         // Input
         moveInput = 0f;
-        if (Keyboard.current.aKey.isPressed) moveInput = -1f;
-        if (Keyboard.current.dKey.isPressed) moveInput = 1f;
+        if (Keyboard.current.aKey.isPressed) moveInput = -1f; //GetComponent<Transform>().localScale.x = .25f;
+        if (Keyboard.current.dKey.isPressed) moveInput = 1f; //GetComponent<Transform>().localScale.x = -.25f;
+
+        if (Mathf.Abs(moveInput) > 0.1f) GetComponent<Animator>().SetBool("isWalking",true);
+        else GetComponent<Animator>().SetBool("isWalking", false);
+
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
