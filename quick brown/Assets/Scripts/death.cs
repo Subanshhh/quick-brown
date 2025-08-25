@@ -31,6 +31,7 @@ public class Death : MonoBehaviour
 
         Vector3 scale = transform.localScale;
         scale.y = Mathf.Abs(scale.y);
+        scale.x = Mathf.Abs(scale.x);
         transform.localScale = scale;
 
 
