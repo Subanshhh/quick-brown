@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRb; // optional
     [SerializeField] private float velocityThreshold = 0.05f;
 
-    private float currentTime = 0f;
+    [HideInInspector] public float currentTime = 0f; //it is public so that the starscript can access it
     private bool isRunning = false;   // don't run until we detect movement
     private bool hasStarted = false;  // ensures we only start once
 

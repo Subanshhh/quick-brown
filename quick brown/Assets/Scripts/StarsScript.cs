@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +11,7 @@ public class StarsScript : MonoBehaviour
     [SerializeField] private Image Star0;
     [SerializeField] private Image Star1;
     [SerializeField] private Image Star2;
+    [SerializeField] private int TimeToFinish;
 
 
 
@@ -44,7 +47,7 @@ public class StarsScript : MonoBehaviour
 
 
 
-        if (true) // replace with your actual condition for star 1
+        if (GetComponentInParent<Timer>().currentTime <= TimeToFinish) // replace with your actual condition for star 1
         {
             Color imageColor = Star1.color;
             imageColor.a = 1f; // Fully visible for star 1
@@ -63,7 +66,7 @@ public class StarsScript : MonoBehaviour
 
 
 
-        if (true) // replace with your actual condition for star 2
+        if (GameObject.FindWithTag("Egg") == null) // replace with your actual condition for star 2 //collected all eggs
         {
             Color imageColor = Star2.color;
             imageColor.a = 1f; // Fully visible for star 2

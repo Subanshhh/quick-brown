@@ -675,6 +675,7 @@ MonoBehaviour:
   startOnFirstPhysicalMovement: 0
   playerRb: {fileID: 0}
   velocityThreshold: 0.05
+  currentTime: 0
 --- !u!1 &6523658826419262132
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +726,7 @@ MonoBehaviour:
   Star0: {fileID: 2722704453325319021}
   Star1: {fileID: 6934526002873446834}
   Star2: {fileID: 7243343170873029821}
+  TimeToFinish: 10
 --- !u!114 &6526635304687541456
 MonoBehaviour:
   m_ObjectHideFlags: 0
