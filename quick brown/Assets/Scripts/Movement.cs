@@ -71,12 +71,12 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = 0f;
 
-        if (Keyboard.current.aKey.isPressed)
+        if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
             moveInput = -1f;
             playerTransform.localScale = new Vector3(0.25f, playerTransform.localScale.y, 1f);
         }
-        else if (Keyboard.current.dKey.isPressed)
+        else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
         {
             moveInput = 1f;
             playerTransform.localScale = new Vector3(-0.25f, playerTransform.localScale.y, 1f);
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.wKey.wasPressedThisFrame && isGrounded)
         {
             float jumpDirection = isUpsideDown ? -1f : 1f;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpDirection);
