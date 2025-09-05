@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6874331095281767048}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.9, z: 0}
+  m_LocalPosition: {x: 0, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 6524119281534640447}
   - component: {fileID: 515260072064549658}
   - component: {fileID: 7359869324644394860}
-  - component: {fileID: 1328118759923940901}
   - component: {fileID: 3903658710922793655}
   m_Layer: 0
   m_Name: fox
@@ -67,7 +66,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1610497731551273680}
@@ -117,7 +116,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ab1b32ac76a824745ba2c458b2c5bb07, type: 3}
+  m_Sprite: {fileID: -8660621807195005807, guid: 9f4393ccb773e89488c21d97c4a4cdd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,8 +161,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.07078838, y: -0.33034754}
-  m_Size: {x: 3.21805, y: 4.2967043}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.9645161, y: 1.2209678}
   m_Direction: 0
 --- !u!50 &3619917956985943245
 Rigidbody2D:
@@ -209,17 +208,17 @@ MonoBehaviour:
   airAcceleration: 30
   jumpForce: 14
   groundCheck: {fileID: 1610497731551273680}
-  groundCheckRadius: 1
+  groundCheckRadius: 0.6
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   dashSpeed: 20
   dashDuration: 0.15
   dashCooldown: 1
+  dashCheckDistance: 1
   wallLayer:
     serializedVersion: 2
-    m_Bits: 0
-  dashCheckDistance: 1
+    m_Bits: 64
   isUpsideDown: 0
 --- !u!114 &693673496962420873
 MonoBehaviour:
@@ -246,7 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd820db5f101af4e9531368a4be584e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3476236341995942668}
   lowerThreshold: -4
   upperThreshold: 10
 --- !u!199 &515260072064549658
@@ -5049,21 +5047,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &1328118759923940901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534892035208938595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd820db5f101af4e9531368a4be584e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 3476236341995942668}
-  lowerThreshold: -4
-  upperThreshold: 30
 --- !u!95 &3903658710922793655
 Animator:
   serializedVersion: 7
