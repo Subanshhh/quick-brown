@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private Transform playerTransform;
+    private TrailRenderer dashTrail;
+
 
     // State
     private float moveInput;
@@ -42,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerTransform = transform;
+        dashTrail = GetComponent<TrailRenderer>();
+        dashTrail.emitting = false;
+
     }
 
     void Update()
@@ -96,6 +101,15 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpDirection);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDashing && ((1 << collision.gameObject.layer) & wallLayer) != 0)
+        {
+            dashTrail.emitting = false;
+            isDashing = false;
+            rb.linearVelocity = Vector2.zero;
+        }
+    }
 
     private void HandleDash()
     {
@@ -105,20 +119,18 @@ public class PlayerMovement : MonoBehaviour
         {
             float dashDir = moveInput != 0 ? moveInput : (playerTransform.localScale.x > 0 ? -1 : 1);
 
-            RaycastHit2D hit = Physics2D.Raycast(playerTransform.position, Vector2.right * dashDir, dashCheckDistance, wallLayer);
+            isDashing = true;
+            dashEndTime = Time.time + dashDuration;
+            rb.linearVelocity = new Vector2(dashDir * dashSpeed, 0f);
+            lastDashTime = Time.time;
+            dashTrail.emitting = true; // enable trail
 
-            if (hit.collider == null)
-            {
-                isDashing = true;
-                dashEndTime = Time.time + dashDuration;
-                rb.linearVelocity = new Vector2(dashDir * dashSpeed, 0f);
-                lastDashTime = Time.time;
-            }
         }
 
         if (isDashing && Time.time >= dashEndTime)
         {
             isDashing = false;
+            dashTrail.emitting = false;
         }
     }
 
