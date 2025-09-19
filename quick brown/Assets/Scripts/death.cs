@@ -20,8 +20,10 @@ public class Death : MonoBehaviour
 
     public void OnDeath()
     {
+        GetComponent<TrailRenderer>().emitting = false;
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
         Debug.Log("Starting death func");
         StartCoroutine(DeathSequence());
     }

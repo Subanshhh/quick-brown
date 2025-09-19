@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         HandleInput();
         CheckGrounded();
         HandleJump();
@@ -113,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleDash()
     {
-        if (Mouse.current.rightButton.wasPressedThisFrame &&
+        if ((Mouse.current.rightButton.wasPressedThisFrame|| Keyboard.current.eKey.wasPressedThisFrame )&&
             Time.time >= lastDashTime + dashCooldown &&
             !isDashing)
         {

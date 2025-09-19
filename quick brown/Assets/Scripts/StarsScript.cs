@@ -14,6 +14,9 @@ public class StarsScript : MonoBehaviour
     [SerializeField] private int TimeToFinish;
 
 
+    [SerializeField] private Text TimeNumerator;
+    [SerializeField] private Text TimeDenomenator;
+
 
     private void Awake()
     {
@@ -47,6 +50,8 @@ public class StarsScript : MonoBehaviour
 
 
 
+        TimeNumerator.text = (GetComponentInParent<Timer>().currentTime).ToString();
+        TimeDenomenator.text = (Mathf.RoundToInt(TimeToFinish)).ToString();
         if (GetComponentInParent<Timer>().currentTime <= TimeToFinish) // replace with your actual condition for star 1
         {
             Color imageColor = Star1.color;
