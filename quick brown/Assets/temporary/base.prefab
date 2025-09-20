@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4494722527213717960}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +44,14 @@ PrefabInstance:
     - target: {fileID: 7488391478072063, guid: 593b04bf8d7596d4a96f00d7992b72cf, type: 3}
       propertyPath: m_Name
       value: grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286237948371908564, guid: 593b04bf8d7596d4a96f00d7992b72cf, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0420854
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286237948371908564, guid: 593b04bf8d7596d4a96f00d7992b72cf, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2301728465887972245, guid: 593b04bf8d7596d4a96f00d7992b72cf, type: 3}
       propertyPath: m_LocalScale.x
@@ -89,6 +97,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7940727700219685974, guid: 593b04bf8d7596d4a96f00d7992b72cf, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940727700219685974, guid: 593b04bf8d7596d4a96f00d7992b72cf, type: 3}
+      propertyPath: m_Color.g
+      value: 0.54509807
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940727700219685974, guid: 593b04bf8d7596d4a96f00d7992b72cf, type: 3}
+      propertyPath: m_Color.r
+      value: 0.13333334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -107,6 +127,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4494722527213717960}
     m_Modifications:
+    - target: {fileID: 2818245531879018306, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818245531879018306, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.27058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818245531879018306, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.54509807
+      objectReference: {fileID: 0}
     - target: {fileID: 5786183873555812697, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
       propertyPath: m_Name
       value: 'dirt '

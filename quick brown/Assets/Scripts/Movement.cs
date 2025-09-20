@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleDash()
     {
-        if ((Mouse.current.rightButton.wasPressedThisFrame|| Keyboard.current.eKey.wasPressedThisFrame )&&
+        if ((Mouse.current.rightButton.wasPressedThisFrame|| Keyboard.current.enterKey.wasPressedThisFrame )&&
             Time.time >= lastDashTime + dashCooldown &&
             !isDashing)
         {
