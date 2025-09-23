@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player;                        // Reference to the player's transform
+    private Transform player;                        // Reference to the player's transform
     public Vector3 offset = new Vector3(0f, 0f, -10f); // Z offset to keep camera behind the scene
     public float smoothSpeed = 5f;
 
@@ -12,6 +12,8 @@ public class CameraFollow : MonoBehaviour
     {
         // Capture the initial Y position so it doesn't change
         initialY = transform.position.y;
+
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     void LateUpdate()
