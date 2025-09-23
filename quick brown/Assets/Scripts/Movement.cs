@@ -39,6 +39,17 @@ public class PlayerMovement : MonoBehaviour
     private float dashEndTime;
     private float lastDashTime = -Mathf.Infinity;
 
+    [Header("Better Jump")]
+    public float fallMultiplier = 2.5f;      // Faster fall
+    public float lowJumpMultiplier = 3f;     // Cut jump short
+    public float coyoteTime = 0.1f;          // Grace period after leaving ground
+    public float jumpBufferTime = 0.1f;      // Press jump early buffer
+
+    // Internals
+    private float coyoteTimeCounter;
+    private float jumpBufferCounter;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -51,13 +62,33 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
         HandleInput();
         CheckGrounded();
+
+        // Track coyote time (counts down when not grounded)
+        if (isGrounded)
+            coyoteTimeCounter = coyoteTime;
+        else
+            coyoteTimeCounter -= Time.deltaTime;
+
+        // Track jump buffer (counts down after jump press)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame ||
+            Keyboard.current.upArrowKey.wasPressedThisFrame ||
+            Keyboard.current.wKey.wasPressedThisFrame)
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
         HandleJump();
         HandleDash();
         HandleAnimations();
+        ApplyBetterJumpPhysics();   // <-- NEW
     }
+
 
     void FixedUpdate()
     {
@@ -91,17 +122,53 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        // Cast a small circle below or above depending on orientation
+        Vector2 checkDir = isUpsideDown ? Vector2.up : Vector2.down;
+
+        RaycastHit2D hit = Physics2D.CircleCast(
+            groundCheck.position,
+            groundCheckRadius,
+            checkDir,
+            0.05f,
+            groundLayer
+        );
+
+        if (hit.collider != null)
+        {
+            // If normal is facing mostly up → ground
+            if (!isUpsideDown && hit.normal.y > 0.7f)
+            {
+                isGrounded = true;
+                return;
+            }
+            // If normal is facing mostly down → ceiling ground (for upside down)
+            if (isUpsideDown && hit.normal.y < -0.7f)
+            {
+                isGrounded = true;
+                return;
+            }
+        }
+
+        isGrounded = false;
     }
+
+
+
 
     private void HandleJump()
     {
-        if ((Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.wKey.wasPressedThisFrame) && isGrounded)
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
             float jumpDirection = isUpsideDown ? -1f : 1f;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpDirection);
+
+            // Reset counters
+            jumpBufferCounter = 0f;
+            coyoteTimeCounter = 0f;
         }
     }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDashing && ((1 << collision.gameObject.layer) & wallLayer) != 0)
@@ -151,4 +218,35 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
+    private void ApplyBetterJumpPhysics()
+    {
+        if (!isUpsideDown)
+        {
+            // Normal orientation
+            if (rb.linearVelocity.y < 0) // Falling
+            {
+                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (rb.linearVelocity.y > 0 &&
+                     !(Keyboard.current.spaceKey.isPressed || Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed))
+            {
+                // Cut jump short
+                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+        }
+        else
+        {
+            // Upside down orientation
+            if (rb.linearVelocity.y > 0) // Falling upwards
+            {
+                rb.linearVelocity += Vector2.up * -Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (rb.linearVelocity.y < 0 &&
+                     !(Keyboard.current.spaceKey.isPressed || Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed))
+            {
+                rb.linearVelocity += Vector2.up * -Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+        }
+    }
+
 }
