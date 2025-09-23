@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,10 +19,19 @@ public class StarsScript : MonoBehaviour
     [SerializeField] private Text TimeDenomenator;
 
 
+
     private void Awake()
     {
         Panel.SetActive(false);
     }
+
+    private void Update()
+    {
+        if (Keyboard.current.enterKey.wasPressedThisFrame && Panel.activeInHierarchy)
+            GetComponent<Buttons>().NextLevel();
+    }
+
+
 
 
     public void FinishedLevel()
