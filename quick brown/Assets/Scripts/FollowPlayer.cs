@@ -2,27 +2,49 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private Transform player;                        // Reference to the player's transform
-    public Vector3 offset = new Vector3(0f, 0f, -10f); // Z offset to keep camera behind the scene
-    public float smoothSpeed = 5f;
+    public Transform player;
 
-    private float initialY; // Store the starting Y position of the camera
+    [Header("Dead Zone")]
+    public Vector2 deadZoneSize = new Vector2(2f, 1f); // width, height of the deadzone box
 
-    void Start()
-    {
-        // Capture the initial Y position so it doesn't change
-        initialY = transform.position.y;
+    [Header("Smoothing")]
+    public float smoothTime = 0.15f; // lower = snappier, higher = smoother
+    private Vector3 velocity = Vector3.zero;
 
-        player = GameObject.FindWithTag("Player").transform;
-    }
+    [Header("Look Ahead")]
+    public float lookAheadDistance = 2f;  // how far ahead camera shifts when moving
+    public float lookAheadSpeed = 3f;
+
+    private Vector3 currentLookAhead;
+    private Vector3 targetPos;
 
     void LateUpdate()
     {
-        if (player != null)
-        {
-            Vector3 targetPosition = new Vector3(player.position.x + offset.x, initialY, offset.z);
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-            transform.position = smoothedPosition;
-        }
+        if (!player) return;
+
+        Vector3 camPos = transform.position;
+
+        // --- Dead Zone ---
+        Vector3 diff = player.position - camPos;
+        if (Mathf.Abs(diff.x) > deadZoneSize.x) camPos.x = player.position.x;
+        if (Mathf.Abs(diff.y) > deadZoneSize.y) camPos.y = player.position.y;
+
+        // --- Look Ahead (anticipation) ---
+        float moveDir = Input.GetAxisRaw("Horizontal");
+        Vector3 targetLookAhead = new Vector3(moveDir * lookAheadDistance, 0, 0);
+        currentLookAhead = Vector3.Lerp(currentLookAhead, targetLookAhead, Time.deltaTime * lookAheadSpeed);
+
+        // --- Final Target ---
+        targetPos = new Vector3(camPos.x, camPos.y, transform.position.z) + currentLookAhead;
+
+        // --- Smooth Damp ---
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // visualize dead zone box
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, deadZoneSize * 2);
     }
 }
