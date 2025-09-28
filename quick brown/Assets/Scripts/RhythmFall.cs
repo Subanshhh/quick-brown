@@ -16,6 +16,8 @@ public class PredefinedFallingObjects : MonoBehaviour
     public FallingEvent[] fallingEvents; // array of events in order
     public float destroyY = -5f;    // Y position below which objects disappear
 
+    [SerializeField] private GameObject backupEgg;
+
     void Start()
     {
         foreach (var ev in fallingEvents)
@@ -46,7 +48,6 @@ public class PredefinedFallingObjects : MonoBehaviour
         // Destroy object after it falls below destroyY
         StartCoroutine(DestroyWhenBelow(obj, destroyY));
     }
-
     IEnumerator DestroyWhenBelow(GameObject obj, float yLevel)
     {
         while (obj != null && obj.transform.position.y > yLevel)
@@ -56,7 +57,26 @@ public class PredefinedFallingObjects : MonoBehaviour
 
         if (obj != null)
         {
+            // Check if any child has tag "Egg"
+            bool hasEgg = false;
+            foreach (Transform child in obj.transform)
+            {
+                if (child.CompareTag("Egg"))
+                {
+                    hasEgg = true;
+                    break;
+                }
+            }
+
+            // If egg exists, activate backupEgg
+            if (hasEgg && backupEgg != null)
+            {
+                backupEgg.SetActive(true);
+            }
+
+            // Destroy the prefab in all cases
             Destroy(obj);
         }
     }
+
 }
