@@ -2162,7 +2162,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 511341498748406640, guid: 099f0ab4e382d4c4ba758487771997d3, type: 3}
       propertyPath: m_text
-      value: press RMB (or ENTER) to dash
+      value: press RMB ( or ENTER ) to dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 511341498748406640, guid: 099f0ab4e382d4c4ba758487771997d3, type: 3}
+      propertyPath: m_fontSize
+      value: 43.5
       objectReference: {fileID: 0}
     - target: {fileID: 1632334813001867638, guid: 099f0ab4e382d4c4ba758487771997d3, type: 3}
       propertyPath: m_Name
