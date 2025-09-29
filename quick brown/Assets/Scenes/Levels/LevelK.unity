@@ -613,64 +613,64 @@ MonoBehaviour:
     xPosition: 1
     fallSpeed: 2
   - prefab: {fileID: 8443355630984960965, guid: d3b8dfbb5019f1649943c32703864613, type: 3}
-    spawnTime: 1.5
-    xPosition: 0
+    spawnTime: 1.4
+    xPosition: -1
     fallSpeed: 2
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 3
+    spawnTime: 2.8
     xPosition: 1
     fallSpeed: 2
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
-    spawnTime: 4.5
+    spawnTime: 4.2
     xPosition: 1
     fallSpeed: 2
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
-    spawnTime: 6.5
+    spawnTime: 8.4
     xPosition: 1
     fallSpeed: 3
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 8.5
+    spawnTime: 9.1
     xPosition: 1
     fallSpeed: 3
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
+    spawnTime: 9.8
+    xPosition: 1
+    fallSpeed: 3
+  - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
     spawnTime: 10.5
     xPosition: 1
     fallSpeed: 3
-  - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 12.5
-    xPosition: 1
-    fallSpeed: 3
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
-    spawnTime: 15
+    spawnTime: 11.2
     xPosition: 1
     fallSpeed: 4
   - prefab: {fileID: 8443355630984960965, guid: d3b8dfbb5019f1649943c32703864613, type: 3}
-    spawnTime: 17.5
-    xPosition: 0
+    spawnTime: 15.4
+    xPosition: -1
     fallSpeed: 4
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 20
-    xPosition: 1
-    fallSpeed: 4
-  - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
-    spawnTime: 22.5
+    spawnTime: 15.75
     xPosition: 1
     fallSpeed: 4
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
-    spawnTime: 25.5
+    spawnTime: 16.1
+    xPosition: 1
+    fallSpeed: 4
+  - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
+    spawnTime: 16.45
     xPosition: 1
     fallSpeed: 5
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 28.5
+    spawnTime: 38.75
     xPosition: 1
     fallSpeed: 5
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 31.5
+    spawnTime: 43.75
     xPosition: 1
     fallSpeed: 5
   - prefab: {fileID: 8443355630984960965, guid: d3b8dfbb5019f1649943c32703864613, type: 3}
-    spawnTime: 34.5
-    xPosition: 0
+    spawnTime: 48.75
+    xPosition: -1
     fallSpeed: 5
   destroyY: -6
   backupEgg: {fileID: 883821371}
@@ -761,7 +761,7 @@ Transform:
   m_GameObject: {fileID: 1283231023}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
