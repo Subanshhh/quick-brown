@@ -386,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3619917956985943245, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
       propertyPath: m_Constraints
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6524119281534640447, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
       propertyPath: lowerThreshold
@@ -641,7 +641,7 @@ MonoBehaviour:
     xPosition: 1
     fallSpeed: 3
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
-    spawnTime: 11.2
+    spawnTime: 14.7
     xPosition: 1
     fallSpeed: 4
   - prefab: {fileID: 8443355630984960965, guid: d3b8dfbb5019f1649943c32703864613, type: 3}
@@ -649,29 +649,49 @@ MonoBehaviour:
     xPosition: -1
     fallSpeed: 4
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 15.75
-    xPosition: 1
-    fallSpeed: 4
-  - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
     spawnTime: 16.1
     xPosition: 1
     fallSpeed: 4
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
-    spawnTime: 16.45
+    spawnTime: 16.8
+    xPosition: 1
+    fallSpeed: 4
+  - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
+    spawnTime: 21
     xPosition: 1
     fallSpeed: 5
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 38.75
+    spawnTime: 21.35
     xPosition: 1
     fallSpeed: 5
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 43.75
+    spawnTime: 21.7
     xPosition: 1
     fallSpeed: 5
   - prefab: {fileID: 8443355630984960965, guid: d3b8dfbb5019f1649943c32703864613, type: 3}
-    spawnTime: 48.75
+    spawnTime: 22.05
     xPosition: -1
     fallSpeed: 5
+  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
+    spawnTime: 23
+    xPosition: 0
+    fallSpeed: 3
+  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
+    spawnTime: 23
+    xPosition: 0
+    fallSpeed: 3
+  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
+    spawnTime: 23
+    xPosition: 0
+    fallSpeed: 3
+  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
+    spawnTime: 23
+    xPosition: 0
+    fallSpeed: 3
+  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
+    spawnTime: 23
+    xPosition: 0
+    fallSpeed: 3
   destroyY: -6
   backupEgg: {fileID: 883821371}
 --- !u!1 &883821371 stripped
