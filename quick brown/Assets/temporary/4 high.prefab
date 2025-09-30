@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7481548783255825369
+--- !u!1 &7662813222947900297
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2773549814868695720}
-  - component: {fileID: 7890362029711897648}
+  - component: {fileID: 7150912169240036600}
+  - component: {fileID: 7894427129584530122}
   m_Layer: 3
-  m_Name: 1x1 cube
+  m_Name: 4 high
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2773549814868695720
+--- !u!4 &7150912169240036600
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481548783255825369}
+  m_GameObject: {fileID: 7662813222947900297}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.72594786, y: -5.4375553, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 5.5673227, y: 17.592478, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6661634129743064650}
+  - {fileID: 1762911226247607547}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7890362029711897648
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!61 &7894427129584530122
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481548783255825369}
+  m_GameObject: {fileID: 7662813222947900297}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -79,13 +79,13 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &3070701830409099468
+--- !u!1001 &7969310383499395709
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2773549814868695720}
+    m_TransformParent: {fileID: 7150912169240036600}
     m_Modifications:
     - target: {fileID: 2818245531879018306, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
       propertyPath: m_Color.b
@@ -157,25 +157,25 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5786183873555812697, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2979384293513085172}
+      addedObject: {fileID: 3488278928038101183}
   m_SourcePrefab: {fileID: 100100000, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
---- !u!4 &6661634129743064650 stripped
+--- !u!4 &1762911226247607547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8570266500392892038, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
-  m_PrefabInstance: {fileID: 3070701830409099468}
+  m_PrefabInstance: {fileID: 7969310383499395709}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8850123677250767253 stripped
+--- !u!1 &4527254527060153124 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5786183873555812697, guid: 5010eb0124a700243a224d016fe30e5a, type: 3}
-  m_PrefabInstance: {fileID: 3070701830409099468}
+  m_PrefabInstance: {fileID: 7969310383499395709}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &2979384293513085172
+--- !u!61 &3488278928038101183
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8850123677250767253}
+  m_GameObject: {fileID: 4527254527060153124}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
