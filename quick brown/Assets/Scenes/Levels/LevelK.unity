@@ -616,9 +616,9 @@ MonoBehaviour:
     spawnTime: 1.4
     xPosition: -1
     fallSpeed: 2
-  - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
+  - prefab: {fileID: 4399375789729641809, guid: 1f334348a0a34fe4b93aa15d6471ae90, type: 3}
     spawnTime: 2.8
-    xPosition: 1
+    xPosition: 0
     fallSpeed: 2
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
     spawnTime: 4.2
@@ -628,29 +628,25 @@ MonoBehaviour:
     spawnTime: 8.4
     xPosition: 1
     fallSpeed: 3
-  - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
+  - prefab: {fileID: 216004272259162130, guid: 540bbcd220470bf4cb0767f59ab6b40c, type: 3}
     spawnTime: 9.1
-    xPosition: 1
-    fallSpeed: 3
-  - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
-    spawnTime: 9.8
-    xPosition: 1
+    xPosition: -1
     fallSpeed: 3
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
     spawnTime: 10.5
     xPosition: 1
     fallSpeed: 3
-  - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
+  - prefab: {fileID: 1229601053069799607, guid: 66b4271fd49422a459d761f07e062886, type: 3}
     spawnTime: 14.7
-    xPosition: 1
+    xPosition: 0
     fallSpeed: 4
   - prefab: {fileID: 8443355630984960965, guid: d3b8dfbb5019f1649943c32703864613, type: 3}
     spawnTime: 15.4
     xPosition: -1
     fallSpeed: 4
-  - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
+  - prefab: {fileID: 4399375789729641809, guid: 1f334348a0a34fe4b93aa15d6471ae90, type: 3}
     spawnTime: 16.1
-    xPosition: 1
+    xPosition: 0
     fallSpeed: 4
   - prefab: {fileID: 2905356327944873875, guid: b3804d96432c72a4ca23a10b0c30e386, type: 3}
     spawnTime: 16.8
@@ -660,7 +656,7 @@ MonoBehaviour:
     spawnTime: 21
     xPosition: 1
     fallSpeed: 5
-  - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
+  - prefab: {fileID: 6449529243583355990, guid: 6a2306c68c6955241b60e38415debcd4, type: 3}
     spawnTime: 21.35
     xPosition: 1
     fallSpeed: 5
@@ -672,22 +668,6 @@ MonoBehaviour:
     spawnTime: 22.05
     xPosition: -1
     fallSpeed: 5
-  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
-    spawnTime: 23
-    xPosition: 0
-    fallSpeed: 3
-  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
-    spawnTime: 23
-    xPosition: 0
-    fallSpeed: 3
-  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
-    spawnTime: 23
-    xPosition: 0
-    fallSpeed: 3
-  - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
-    spawnTime: 23
-    xPosition: 0
-    fallSpeed: 3
   - prefab: {fileID: 407889440549251344, guid: 1dedf448ab13c424f8e78213d9b4d9b0, type: 3}
     spawnTime: 23
     xPosition: 0
