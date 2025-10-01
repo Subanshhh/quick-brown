@@ -10,6 +10,10 @@ public class BackgroundController : MonoBehaviour
 
     private void Start()
     {
+        if (cam == null)
+        {
+            cam = GameObject.Find("Main Camera");
+        }
         startpos = transform.position.x;
         length=GetComponent<SpriteRenderer>().bounds.size.x;
     }
@@ -21,7 +25,7 @@ public class BackgroundController : MonoBehaviour
 
         transform.position = new Vector3(startpos + distance, transform.position.y, transform.position.z);
 
-        if (movement > startpos - length)
+        if (movement > startpos + length)
         {
             startpos += length;
         }

@@ -1066,8 +1066,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1480071339}
-  offset: {x: 0, y: 2.3, z: -10}
-  smoothSpeed: 5
+  deadZoneSize: {x: 2, y: 1}
+  smoothTime: 0.15
+  lookAheadDistance: 2
+  lookAheadSpeed: 3
 --- !u!1001 &556400666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1162,7 +1164,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000395c59b737225ae7c5d192b5699b3658
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
