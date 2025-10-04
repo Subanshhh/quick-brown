@@ -7,6 +7,7 @@ public class Death : MonoBehaviour
 {
     [SerializeField] private string DeathTag;
     private ParticleSystem deathParticles;
+    
 
     private void Awake()
     {
@@ -25,6 +26,9 @@ public class Death : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         Debug.Log("Starting death func");
+
+        AudioManager.PlayDeathSFX();
+
         StartCoroutine(DeathSequence());
     }
     public IEnumerator DeathSequence()

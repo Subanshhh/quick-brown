@@ -39,6 +39,9 @@ public class Buttons : MonoBehaviour
             PlayerPrefs.SetInt("Level" + alphabet[i] + "Stars", 3);
         }
     }
+    
+
+   
 
 
 }

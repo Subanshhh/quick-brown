@@ -6,6 +6,7 @@ public class RestartOnFall : MonoBehaviour
     private Transform player;
     public float lowerThreshold = -4f;
     public float upperThreshold = 10f;
+    
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class RestartOnFall : MonoBehaviour
     {
         if (player != null && (player.position.y < lowerThreshold || player.position.y > upperThreshold))
         {
+            AudioManager.PlayDeathSFX();
             RestartScene();
         }
     }

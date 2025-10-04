@@ -16,6 +16,7 @@ public class PortalInvertGravity : MonoBehaviour
 
         if (Keyboard.current[activateKey].wasPressedThisFrame)
         {
+            AudioManager.PlayPortalEnter(); 
             InvertGravity();
         }
     }
