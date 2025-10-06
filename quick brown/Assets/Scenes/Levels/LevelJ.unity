@@ -2913,6 +2913,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2776438202693561370, guid: b4ae885c9c120f148af33a0cc495fb63, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1409181860}
     - target: {fileID: 4906834027347953574, guid: b4ae885c9c120f148af33a0cc495fb63, type: 3}
       propertyPath: m_Name
       value: Parallax
