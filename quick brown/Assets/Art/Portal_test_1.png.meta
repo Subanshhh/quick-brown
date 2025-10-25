@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: 90f1d320672c2694c86c44c8b14f4cc6
+guid: 17703b23dbd14bb4dbf04e31addf8f0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8327223691211624759
-    second: Egg_SpriteSheet_0
+      213: 4777041409845536727
+    second: Portal_test_1_0
   - first:
-      213: 8003868260664924760
-    second: Egg_SpriteSheet_1
+      213: -842444165226389658
+    second: Portal_test_1_1
   - first:
-      213: -4144586045994603164
-    second: Egg_SpriteSheet_2
+      213: 8845479608062244411
+    second: Portal_test_1_2
   - first:
-      213: -1805019738093284700
-    second: Egg_SpriteSheet_3
-  - first:
-      213: -251778994427511145
-    second: Egg_SpriteSheet_4
-  - first:
-      213: 5505312394743387926
-    second: Egg_SpriteSheet_5
-  - first:
-      213: 2334489279651729577
-    second: Egg_SpriteSheet_6
-  - first:
-      213: -3697338959526657848
-    second: Egg_SpriteSheet_7
+      213: -3922123870047028093
+    second: Portal_test_1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Egg_SpriteSheet_0
+      name: Portal_test_1_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 24
-        height: 30
+        x: 0
+        y: 2
+        width: 40
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ce2d102c22cf6c80800000000000000
-      internalID: -8327223691211624759
+      spriteID: 7d7ac273ad57b4240800000000000000
+      internalID: 4777041409845536727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Egg_SpriteSheet_1
+      name: Portal_test_1_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 0
-        width: 24
-        height: 30
+        x: 40
+        y: 2
+        width: 40
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85ad4f9d6c3731f60800000000000000
-      internalID: 8003868260664924760
+      spriteID: 66f9494ce790f44f0800000000000000
+      internalID: -842444165226389658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Egg_SpriteSheet_2
+      name: Portal_test_1_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 0
-        width: 24
-        height: 30
+        x: 80
+        y: 2
+        width: 40
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46d637b33f87b76c0800000000000000
-      internalID: -4144586045994603164
+      spriteID: b36f28296d471ca70800000000000000
+      internalID: 8845479608062244411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Egg_SpriteSheet_3
+      name: Portal_test_1_3
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 24
-        height: 30
+        x: 120
+        y: 2
+        width: 40
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,96 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a291629c1843f6e0800000000000000
-      internalID: -1805019738093284700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Egg_SpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 0
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79e3e3ba650818cf0800000000000000
-      internalID: -251778994427511145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Egg_SpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 0
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6171c32647cc66c40800000000000000
-      internalID: 5505312394743387926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Egg_SpriteSheet_6
-      rect:
-        serializedVersion: 2
-        x: 196
-        y: 0
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a0599591a5c56020800000000000000
-      internalID: 2334489279651729577
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Egg_SpriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 0
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfe3bfda0d390b644afb02aa571676b5
-      internalID: -3697338959526657848
+      spriteID: 38c34c8de11d199c0800000000000000
+      internalID: -3922123870047028093
       vertices: []
       indices: 
       edges: []
@@ -313,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0e1375d9f15bd3b469cda238e7a01b3a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -321,18 +221,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":24.0,"y":30.0},"gridSpriteOffset":{"x":4.0,"y":0.0},"gridSpritePadding":{"x":8.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":2,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Egg_SpriteSheet_0: -8327223691211624759
-      Egg_SpriteSheet_1: 8003868260664924760
-      Egg_SpriteSheet_2: -4144586045994603164
-      Egg_SpriteSheet_3: -1805019738093284700
-      Egg_SpriteSheet_4: -251778994427511145
-      Egg_SpriteSheet_5: 5505312394743387926
-      Egg_SpriteSheet_6: 2334489279651729577
-      Egg_SpriteSheet_7: -3697338959526657848
+      Portal_test_1_0: 4777041409845536727
+      Portal_test_1_1: -842444165226389658
+      Portal_test_1_2: 8845479608062244411
+      Portal_test_1_3: -3922123870047028093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
