@@ -25,6 +25,7 @@ public class Death : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         Debug.Log("Starting death func");
 
         AudioManager.PlayDeathSFX();

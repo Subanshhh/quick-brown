@@ -96,7 +96,7 @@ public class FlappyFoxController : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic;
-        GameStats.deathCount++;
+        //GameStats.deathCount++;
 
         Debug.Log("Fox died! Show game over or restart here.");
     }
