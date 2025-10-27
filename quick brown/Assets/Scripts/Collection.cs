@@ -9,6 +9,7 @@ public class Collectible : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Collected! +" + value);
+            AudioManager.PlayEggCollection();
             Destroy(gameObject);
         }
     }
