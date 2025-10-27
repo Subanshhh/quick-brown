@@ -2462,6 +2462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6062495306266169197, guid: 9b8776f466a9c674fa1f9ab1ff609a4e, type: 3}
+      propertyPath: eggCollectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: ca575d2905b79374f97e5077ef0a17f2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

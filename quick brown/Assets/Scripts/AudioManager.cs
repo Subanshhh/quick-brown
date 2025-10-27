@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip portalEnterSFX;
     public AudioClip levelCompleteSFX;
     public AudioClip[] foxMovementSFX; // multiple variations (1–4)
+    public AudioClip eggCollectSFX;
 
     [Header("UI SFX")]
     public AudioClip uiClickSFX;
@@ -56,6 +57,8 @@ public class AudioManager : MonoBehaviour
     public static void PlayUIClick() => instance?.PlaySFX(instance.uiClickSFX);
     public static void PlayPortalEnter() => instance?.PlaySFX(instance.portalEnterSFX);
     public static void PlayLevelComplete() => instance?.PlaySFX(instance.levelCompleteSFX);
+
+    public static void PlayEggCollection() => instance?.PlaySFX(instance.eggCollectSFX);
 
     private static float lastFoxMoveTime = 0f;
     private static float foxMoveCooldown = 0.5f; // seconds between movement sounds

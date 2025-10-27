@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3c3e01d2e3c788545804270f6ad934e3, type: 3}
   - {fileID: 8300000, guid: 73caba44974ee364c9577d321fecae57, type: 3}
   - {fileID: 8300000, guid: e8c6bdbeac287bf49953ea6c2fae04da, type: 3}
+  eggCollectSFX: {fileID: 8300000, guid: ca575d2905b79374f97e5077ef0a17f2, type: 3}
   uiClickSFX: {fileID: 8300000, guid: dd58f0288ba43764ebb95040fc7e1632, type: 3}
 --- !u!1 &1345661898161938610
 GameObject:
