@@ -351,7 +351,7 @@ MonoBehaviour:
     m_Bits: 64
   fallMultiplier: 2.5
   lowJumpMultiplier: 15
-  coyoteTime: 0.1
+  coyoteTime: 0.05
   jumpBufferTime: 0.1
   isUpsideDown: 0
 --- !u!114 &693673496962420873
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd820db5f101af4e9531368a4be584e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowerThreshold: -4
+  lowerThreshold: -20
   upperThreshold: 30
 --- !u!199 &515260072064549658
 ParticleSystemRenderer:
