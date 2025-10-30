@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jumping")]
     public float jumpForce = 13f;
     public Transform groundCheck;
-    public float groundCheckRadius = 0.2f;
+    public float groundCheckRadius = 0.15f;
     public LayerMask groundLayer;
 
     [Header("Dashing")]
@@ -30,23 +30,19 @@ public class PlayerMovement : MonoBehaviour
     [Header("Misc")]
     public bool isUpsideDown = false;
 
-    // Components
     private Rigidbody2D rb;
     private Animator animator;
     private Transform playerTransform;
     private TrailRenderer dashTrail;
 
-    // State
     private float moveInput;
     private bool isGrounded;
     private bool isDashing;
     private float dashEndTime;
     private float lastDashTime = -Mathf.Infinity;
 
-    // Internals
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
-
 
     void Start()
     {
@@ -62,13 +58,8 @@ public class PlayerMovement : MonoBehaviour
         HandleInput();
         CheckGrounded();
 
-        // Coyote time
-        if (isGrounded)
-            coyoteTimeCounter = coyoteTime;
-        else
-            coyoteTimeCounter -= Time.deltaTime;
+        coyoteTimeCounter = isGrounded ? coyoteTime : coyoteTimeCounter - Time.deltaTime;
 
-        // Jump buffer
         if (Keyboard.current.spaceKey.wasPressedThisFrame ||
             Keyboard.current.upArrowKey.wasPressedThisFrame ||
             Keyboard.current.wKey.wasPressedThisFrame)
@@ -92,18 +83,14 @@ public class PlayerMovement : MonoBehaviour
 
         float targetSpeed = moveInput * moveSpeed;
         float speedDiff = targetSpeed - rb.linearVelocity.x;
-        float accel = isGrounded ? acceleration : airAcceleration;
+        float accelRate = isGrounded ? acceleration : airAcceleration;
 
-        rb.linearVelocity = new Vector2(
-            rb.linearVelocity.x + speedDiff * accel * Time.fixedDeltaTime,
-            rb.linearVelocity.y
-        );
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x + speedDiff * accelRate * Time.fixedDeltaTime, rb.linearVelocity.y);
     }
 
     private void HandleInput()
     {
         moveInput = 0f;
-
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
             moveInput = -1f;
@@ -130,31 +117,26 @@ public class PlayerMovement : MonoBehaviour
             groundLayer
         );
 
+        isGrounded = false;
+
         if (hit.collider != null)
         {
             float angle = Vector2.Angle(hit.normal, Vector2.up);
+            float angleThreshold = 80f;
 
-            if (!isUpsideDown)
-            {
-                // Allow ground if slope < ~80°, but not vertical walls
-                if (angle < 80f) { isGrounded = true; return; }
-            }
-            else
-            {
-                float angleUpside = Vector2.Angle(hit.normal, Vector2.down);
-                if (angleUpside < 80f) { isGrounded = true; return; }
-            }
+            if (!isUpsideDown && angle < angleThreshold)
+                isGrounded = true;
+            else if (isUpsideDown && Vector2.Angle(hit.normal, Vector2.down) < angleThreshold)
+                isGrounded = true;
         }
-
-        isGrounded = false;
     }
 
     private void HandleJump()
     {
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
-            float jumpDirection = isUpsideDown ? -1f : 1f;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpDirection);
+            float jumpDir = isUpsideDown ? -1f : 1f;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpDir);
 
             jumpBufferCounter = 0f;
             coyoteTimeCounter = 0f;
@@ -163,23 +145,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyBetterJumpPhysics()
     {
+        float gravityY = Physics2D.gravity.y;
+
         if (!isUpsideDown)
         {
-            if (rb.linearVelocity.y < 0) // falling
-                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-
-            else if (rb.linearVelocity.y > 0 &&
+            if (rb.linearVelocity.y < 0f)
+                rb.linearVelocity += Vector2.up * gravityY * (fallMultiplier - 1) * Time.deltaTime;
+            else if (rb.linearVelocity.y > 0f &&
                      !(Keyboard.current.spaceKey.isPressed || Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed))
-                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+                rb.linearVelocity += Vector2.up * gravityY * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
         else
         {
-            if (rb.linearVelocity.y > 0) // falling upwards
-                rb.linearVelocity += Vector2.up * -Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-
-            else if (rb.linearVelocity.y < 0 &&
+            if (rb.linearVelocity.y > 0f)
+                rb.linearVelocity += Vector2.up * -gravityY * (fallMultiplier - 1) * Time.deltaTime;
+            else if (rb.linearVelocity.y < 0f &&
                      !(Keyboard.current.spaceKey.isPressed || Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed))
-                rb.linearVelocity += Vector2.up * -Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+                rb.linearVelocity += Vector2.up * -gravityY * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
     }
 
@@ -190,7 +172,6 @@ public class PlayerMovement : MonoBehaviour
             !isDashing)
         {
             float dashDir = moveInput != 0 ? moveInput : (playerTransform.localScale.x > 0 ? -1 : 1);
-
             isDashing = true;
             dashEndTime = Time.time + dashDuration;
             rb.linearVelocity = new Vector2(dashDir * dashSpeed, 0f);
@@ -206,22 +187,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (isDashing && ((1 << collision.gameObject.layer) & wallLayer) != 0)
-        {
-            if (dashTrail) dashTrail.emitting = false;
-            isDashing = false;
-            rb.linearVelocity = Vector2.zero;
-        }
-    }
-
     private void HandleAnimations()
     {
         if (animator == null) return;
-
-        bool isWalking = Mathf.Abs(moveInput) > 0.1f;
-        animator.SetBool("isWalking", isWalking);
+        animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
     }
 
     void OnDrawGizmosSelected()
