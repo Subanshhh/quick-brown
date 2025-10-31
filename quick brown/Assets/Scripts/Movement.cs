@@ -107,29 +107,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        Vector2 checkDir = isUpsideDown ? Vector2.up : Vector2.down;
-
-        RaycastHit2D hit = Physics2D.CircleCast(
-            groundCheck.position,
-            groundCheckRadius,
-            checkDir,
-            0.05f,
-            groundLayer
-        );
-
-        isGrounded = false;
-
-        if (hit.collider != null)
-        {
-            float angle = Vector2.Angle(hit.normal, Vector2.up);
-            float angleThreshold = 80f;
-
-            if (!isUpsideDown && angle < angleThreshold)
-                isGrounded = true;
-            else if (isUpsideDown && Vector2.Angle(hit.normal, Vector2.down) < angleThreshold)
-                isGrounded = true;
-        }
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
+
 
     private void HandleJump()
     {
