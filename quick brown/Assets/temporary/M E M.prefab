@@ -46,6 +46,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: egg (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1682438955353207502, guid: c00e41635618df94198010d0db71ff95, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682438955353207502, guid: c00e41635618df94198010d0db71ff95, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7767539396453471755, guid: c00e41635618df94198010d0db71ff95, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.0587807

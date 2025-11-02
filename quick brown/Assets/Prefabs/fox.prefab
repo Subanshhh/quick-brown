@@ -292,8 +292,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.9645161, y: 1.2209678}
+  m_Offset: {x: -0.027292728, y: 0}
+  m_Size: {x: 0.77649784, y: 1.2209678}
   m_Direction: 0
 --- !u!50 &3619917956985943245
 Rigidbody2D:
@@ -311,7 +311,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 4
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6ffc1d9087b2cd94da56c44e56e30f5e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -320,7 +320,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2708139191401573295
 MonoBehaviour:
@@ -338,20 +338,12 @@ MonoBehaviour:
   acceleration: 50
   airAcceleration: 30
   jumpForce: 14
-  groundCheck: {fileID: 1610497731551273680}
-  groundCheckRadius: 0.5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
   dashSpeed: 20
   dashDuration: 0.15
   dashCooldown: 1
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 64
   fallMultiplier: 2.5
   lowJumpMultiplier: 15
-  coyoteTime: 0.05
+  coyoteTime: 0.15
   jumpBufferTime: 0.1
   isUpsideDown: 0
 --- !u!114 &693673496962420873

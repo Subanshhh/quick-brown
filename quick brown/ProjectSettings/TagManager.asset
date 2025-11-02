@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Egg
   - Deadly
+  - Ground
   layers:
   - Default
   - TransparentFX

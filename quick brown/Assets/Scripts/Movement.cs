@@ -11,15 +11,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     public float jumpForce = 13f;
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.15f;
-    public LayerMask groundLayer;
+   
 
     [Header("Dashing")]
     public float dashSpeed = 20f;
     public float dashDuration = 0.15f;
     public float dashCooldown = 0.5f;
-    public LayerMask wallLayer;
+   
 
     [Header("Better Jump")]
     public float fallMultiplier = 2.5f;
@@ -56,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleInput();
-        CheckGrounded();
+        
 
         coyoteTimeCounter = isGrounded ? coyoteTime : coyoteTimeCounter - Time.deltaTime;
 
@@ -105,10 +103,33 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void CheckGrounded()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Vector3 normal = other.GetContact(0).normal;
+
+            // Check if it's flat ground (normal points straight up)
+            if (normal == Vector3.up)
+            {
+                isGrounded = true;
+            }
+            // Check if it's the ceiling (normal points straight down)
+            else if (normal == Vector3.down)
+            {
+                isGrounded = true;
+            }
+        }
     }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
+
 
 
     private void HandleJump()
@@ -173,12 +194,5 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
     }
 
-    void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-    }
+    
 }
