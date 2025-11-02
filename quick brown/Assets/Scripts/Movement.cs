@@ -92,13 +92,13 @@ public class PlayerMovement : MonoBehaviour
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
             moveInput = -1f;
-            playerTransform.localScale = new Vector3(1f, playerTransform.localScale.y, 1f);
+            playerTransform.localScale = new Vector3(playerTransform.localScale.y, playerTransform.localScale.y, 1f);
             AudioManager.PlayFoxMove();
         }
         else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
         {
             moveInput = 1f;
-            playerTransform.localScale = new Vector3(-1f, playerTransform.localScale.y, 1f);
+            playerTransform.localScale = new Vector3(-playerTransform.localScale.y, playerTransform.localScale.y, 1f);
             AudioManager.PlayFoxMove();
         }
     }

@@ -17,9 +17,11 @@ public class PredefinedFallingObjects : MonoBehaviour
     public float destroyY = -5f;    // Y position below which objects disappear
 
     [SerializeField] private GameObject backupEgg;
+    private bool hasEgg = false;
 
     void Start()
     {
+        hasEgg = false;
         foreach (var ev in fallingEvents)
         {
             StartCoroutine(SpawnEvent(ev));
@@ -58,7 +60,7 @@ public class PredefinedFallingObjects : MonoBehaviour
         if (obj != null)
         {
             // Check if any child has tag "Egg"
-            bool hasEgg = false;
+            
             foreach (Transform child in obj.transform)
             {
                 if (child.CompareTag("Egg"))

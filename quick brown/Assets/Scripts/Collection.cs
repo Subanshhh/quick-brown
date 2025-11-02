@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
         {
             Debug.Log("Collected! +" + value);
             AudioManager.PlayEggCollection();
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }
