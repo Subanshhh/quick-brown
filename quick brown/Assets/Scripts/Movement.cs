@@ -11,13 +11,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     public float jumpForce = 13f;
-   
 
     [Header("Dashing")]
     public float dashSpeed = 20f;
     public float dashDuration = 0.15f;
     public float dashCooldown = 0.5f;
-   
 
     [Header("Better Jump")]
     public float fallMultiplier = 2.5f;
@@ -34,13 +32,17 @@ public class PlayerMovement : MonoBehaviour
     private TrailRenderer dashTrail;
 
     private float moveInput;
-    private bool isGrounded;
+    [SerializeField] private bool isGrounded;
     private bool isDashing;
     private float dashEndTime;
     private float lastDashTime = -Mathf.Infinity;
 
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
+
+    [Header("Ground Detection")]
+    public float groundRaycastDistance = 0.2f; // Adjust distance for ground detection
+    public LayerMask groundLayer; // Set this in the Unity inspector to specify which layers are considered "Ground"
 
     void Start()
     {
@@ -54,7 +56,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleInput();
-        
+
+        // Raycast to check if the player is grounded
+        RaycastGroundCheck();
 
         coyoteTimeCounter = isGrounded ? coyoteTime : coyoteTimeCounter - Time.deltaTime;
 
@@ -102,35 +106,24 @@ public class PlayerMovement : MonoBehaviour
             AudioManager.PlayFoxMove();
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
+    private void RaycastGroundCheck()
     {
-        if (other.gameObject.CompareTag("Ground"))
+        // Raycast down from the player's position to detect the ground
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundRaycastDistance, groundLayer);
+
+        // Draw the ray in the Scene view for debugging purposes
+        Debug.DrawRay(transform.position, Vector2.down * groundRaycastDistance, Color.green);
+
+        // If the ray hits something and it's considered ground, the player is grounded
+        if (hit.collider != null)
         {
-            Vector3 normal = other.GetContact(0).normal;
-
-            // Check if it's flat ground (normal points straight up)
-            if (normal == Vector3.up)
-            {
-                isGrounded = true;
-            }
-            // Check if it's the ceiling (normal points straight down)
-            else if (normal == Vector3.down)
-            {
-                isGrounded = true;
-            }
+            isGrounded = true;
         }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
+        else
         {
             isGrounded = false;
         }
     }
-
-
 
     private void HandleJump()
     {
@@ -193,6 +186,4 @@ public class PlayerMovement : MonoBehaviour
         if (animator == null) return;
         animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
     }
-
-    
 }

@@ -346,6 +346,11 @@ MonoBehaviour:
   coyoteTime: 0.15
   jumpBufferTime: 0.1
   isUpsideDown: 0
+  isGrounded: 0
+  groundRaycastDistance: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &693673496962420873
 MonoBehaviour:
   m_ObjectHideFlags: 0
