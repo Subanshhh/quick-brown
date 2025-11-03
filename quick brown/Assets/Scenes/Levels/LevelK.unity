@@ -702,7 +702,7 @@ MonoBehaviour:
     xPosition: -1
     fallSpeed: 3
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 10.5
+    spawnTime: 9.8
     xPosition: 1
     fallSpeed: 3
   - prefab: {fileID: 1229601053069799607, guid: 66b4271fd49422a459d761f07e062886, type: 3}

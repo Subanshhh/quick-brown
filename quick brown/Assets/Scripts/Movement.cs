@@ -41,8 +41,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferCounter;
 
     [Header("Ground Detection")]
-    public float groundRaycastDistance = 0.2f; // Adjust distance for ground detection
-    public LayerMask groundLayer; // Set this in the Unity inspector to specify which layers are considered "Ground"
+    public float groundRaycastDistance = 0.2f;
+    public LayerMask groundLayer;
 
     void Start()
     {
@@ -56,8 +56,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleInput();
-
-        // Raycast to check if the player is grounded
         RaycastGroundCheck();
 
         coyoteTimeCounter = isGrounded ? coyoteTime : coyoteTimeCounter - Time.deltaTime;
@@ -87,42 +85,39 @@ public class PlayerMovement : MonoBehaviour
         float speedDiff = targetSpeed - rb.linearVelocity.x;
         float accelRate = isGrounded ? acceleration : airAcceleration;
 
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x + speedDiff * accelRate * Time.fixedDeltaTime, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(
+            rb.linearVelocity.x + speedDiff * accelRate * Time.fixedDeltaTime,
+            rb.linearVelocity.y
+        );
     }
 
     private void HandleInput()
     {
         moveInput = 0f;
+
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
             moveInput = -1f;
-            playerTransform.localScale = new Vector3(playerTransform.localScale.y, playerTransform.localScale.y, 1f);
+            playerTransform.localScale = new Vector3(1f, playerTransform.localScale.y, 1f);
             AudioManager.PlayFoxMove();
         }
         else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
         {
             moveInput = 1f;
-            playerTransform.localScale = new Vector3(-playerTransform.localScale.y, playerTransform.localScale.y, 1f);
+            playerTransform.localScale = new Vector3(-1f, playerTransform.localScale.y, 1f);
             AudioManager.PlayFoxMove();
         }
     }
+
     private void RaycastGroundCheck()
     {
-        // Raycast down from the player's position to detect the ground
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundRaycastDistance, groundLayer);
+        Vector2 direction = isUpsideDown ? Vector2.up : Vector2.down;
 
-        // Draw the ray in the Scene view for debugging purposes
-        Debug.DrawRay(transform.position, Vector2.down * groundRaycastDistance, Color.green);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, groundRaycastDistance, groundLayer);
 
-        // If the ray hits something and it's considered ground, the player is grounded
-        if (hit.collider != null)
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        Debug.DrawRay(transform.position, direction * groundRaycastDistance, Color.green);
+
+        isGrounded = hit.collider != null;
     }
 
     private void HandleJump()
