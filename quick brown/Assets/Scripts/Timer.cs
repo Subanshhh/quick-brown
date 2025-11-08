@@ -1,25 +1,30 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.InputSystem; // for Keyboard/Mouse (Input System)
+using UnityEngine.InputSystem;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private TMP_Text timerText;   // assign your TMP text
+    [SerializeField] private TMP_Text timerText;
+
     [Header("Start condition")]
     [SerializeField] private bool startOnFirstPlayerInput = true;
-
-    // Optional: start when the player actually moves (assign playerRb & toggle below)
     [SerializeField] private bool startOnFirstPhysicalMovement = false;
-    [SerializeField] private Rigidbody2D playerRb; // optional
+    [SerializeField] private Rigidbody2D playerRb;
     [SerializeField] private float velocityThreshold = 0.05f;
 
-    [HideInInspector] public float currentTime = 0f; //it is public so that the starscript can access it
-    private bool isRunning = false;   // don't run until we detect movement
-    private bool hasStarted = false;  // ensures we only start once
+    [Header("Level-specific objects")]
+    [SerializeField] private bool isLevelU = false; // set in inspector
+    [SerializeField] private GameObject objectToDestroyAt45; // object to remove
+    [SerializeField] private GameObject objectToAppearAt45; // object to spawn
+
+    [HideInInspector] public float currentTime = 0f;
+    private bool isRunning = false;
+    private bool hasStarted = false;
+    private bool triggered45 = false; // to ensure we trigger only once
 
     void Update()
     {
-        // Arm the timer when the player first acts
+        // Start timer if needed
         if (!hasStarted)
         {
             if (startOnFirstPlayerInput && HasPlayerInput())
@@ -32,6 +37,13 @@ public class Timer : MonoBehaviour
 
         currentTime += Time.deltaTime;
         UpdateTimerDisplay();
+
+        // Level U specific: trigger at 45 seconds
+        if (isLevelU && !triggered45 && currentTime >= 45f)
+        {
+            TriggerLevelUEvents();
+            triggered45 = true;
+        }
     }
 
     bool HasPlayerInput()
@@ -41,8 +53,8 @@ public class Timer : MonoBehaviour
         if (kb == null) return false;
 
         return (kb.aKey.isPressed || kb.dKey.isPressed || kb.leftArrowKey.isPressed || kb.rightArrowKey.isPressed)
-             || (kb.spaceKey.wasPressedThisFrame) // jump
-             || (mouse != null && mouse.rightButton.wasPressedThisFrame); // dash
+             || (kb.spaceKey.wasPressedThisFrame)
+             || (mouse != null && mouse.rightButton.wasPressedThisFrame);
     }
 
     bool HasPlayerMoved()
@@ -60,7 +72,16 @@ public class Timer : MonoBehaviour
             timerText.text = $"{minutes:00}:{seconds:00}.{milliseconds:00}";
     }
 
-    // Controls (still available if you ever want to call them)
+    void TriggerLevelUEvents()
+    {
+        if (objectToDestroyAt45 != null)
+            Destroy(objectToDestroyAt45);
+
+        if (objectToAppearAt45 != null)
+            objectToAppearAt45.SetActive(true); // activate if disabled
+    }
+
+    // Controls
     public void StartTimer()
     {
         hasStarted = true;
@@ -74,6 +95,7 @@ public class Timer : MonoBehaviour
         currentTime = 0f;
         hasStarted = false;
         isRunning = false;
+        triggered45 = false;
         UpdateTimerDisplay();
     }
 

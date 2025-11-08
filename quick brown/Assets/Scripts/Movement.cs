@@ -23,6 +23,14 @@ public class PlayerMovement : MonoBehaviour
     public float coyoteTime = 0.1f;
     public float jumpBufferTime = 0.1f;
 
+    [Header("Wall Jump")]
+    public LayerMask wallJumpLayer;
+    public Transform wallCheck;
+    public float wallCheckRadius = 0.2f;
+    public float wallSlidingSpeed = 2f;
+    public Vector2 wallJumpingPower = new Vector2(8f, 13f);
+    public float wallJumpTime = 0.2f;
+
     [Header("Misc")]
     public bool isUpsideDown = false;
 
@@ -32,13 +40,18 @@ public class PlayerMovement : MonoBehaviour
     private TrailRenderer dashTrail;
 
     private float moveInput;
-    [SerializeField] private bool isGrounded;
+    private bool isGrounded;
     private bool isDashing;
     private float dashEndTime;
     private float lastDashTime = -Mathf.Infinity;
 
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
+
+    private bool isWallSliding;
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingCounter;
 
     [Header("Ground Detection")]
     public float groundRaycastDistance = 0.2f;
@@ -71,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
         }
 
+        HandleWallSlide();
+        HandleWallJump();
         HandleJump();
         HandleDash();
         HandleAnimations();
@@ -79,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDashing) return;
+        if (isDashing || isWallJumping) return;
 
         float targetSpeed = moveInput * moveSpeed;
         float speedDiff = targetSpeed - rb.linearVelocity.x;
@@ -98,13 +113,13 @@ public class PlayerMovement : MonoBehaviour
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
             moveInput = -1f;
-            playerTransform.localScale = new Vector3(1f, playerTransform.localScale.y, 1f);
+            if (!isWallJumping) playerTransform.localScale = new Vector3(1f, playerTransform.localScale.y, 1f);
             AudioManager.PlayFoxMove();
         }
         else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
         {
             moveInput = 1f;
-            playerTransform.localScale = new Vector3(-1f, playerTransform.localScale.y, 1f);
+            if (!isWallJumping) playerTransform.localScale = new Vector3(-1f, playerTransform.localScale.y, 1f);
             AudioManager.PlayFoxMove();
         }
     }
@@ -114,7 +129,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 direction = isUpsideDown ? Vector2.up : Vector2.down;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, groundRaycastDistance, groundLayer);
-
         Debug.DrawRay(transform.position, direction * groundRaycastDistance, Color.green);
 
         isGrounded = hit.collider != null;
@@ -122,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f && !isWallSliding)
         {
             float jumpDir = isUpsideDown ? -1f : 1f;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpDir);
@@ -180,5 +194,58 @@ public class PlayerMovement : MonoBehaviour
     {
         if (animator == null) return;
         animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
+        animator.SetBool("isWallSliding", isWallSliding);
+    }
+
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallJumpLayer);
+    }
+
+    private void HandleWallSlide()
+    {
+        if (IsWalled() && !isGrounded && moveInput != 0f)
+        {
+            isWallSliding = true;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private void HandleWallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpingDirection = -playerTransform.localScale.x;
+            wallJumpingCounter = wallJumpTime;
+        }
+        else
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+
+        if ((Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.wKey.wasPressedThisFrame)
+            && wallJumpingCounter > 0f)
+        {
+            isWallJumping = true;
+            rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            wallJumpingCounter = 0f;
+
+            if (playerTransform.localScale.x != wallJumpingDirection)
+            {
+                playerTransform.localScale = new Vector3(wallJumpingDirection, playerTransform.localScale.y, 1f);
+            }
+
+            Invoke(nameof(StopWallJumping), wallJumpTime);
+        }
+    }
+
+    private void StopWallJumping()
+    {
+        isWallJumping = false;
     }
 }
