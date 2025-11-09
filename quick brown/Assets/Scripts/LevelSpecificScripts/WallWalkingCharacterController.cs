@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+public class WallWalkingCharacterController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed = 8f;
@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public float coyoteTime = 0.1f;
     public float jumpBufferTime = 0.1f;
 
-    [Header("Misc")]
-    public bool isUpsideDown = false;
+    [Header("Gravity")]
+    public Vector2 gravityDirection = Vector2.down;
 
     [Header("Ground Detection")]
     public float groundRaycastDistance = 0.2f;
@@ -81,43 +81,40 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDashing) return;
 
+        Vector2 perp = Vector2.Perpendicular(-gravityDirection).normalized;
         float targetSpeed = moveInput * moveSpeed;
-        float speedDiff = targetSpeed - rb.linearVelocity.x;
+        Vector2 targetVelocity = perp * targetSpeed;
+
+        // maintain velocity along gravity
+        Vector2 velAlongGravity = Vector2.Dot(rb.linearVelocity, gravityDirection) * gravityDirection.normalized;
         float accelRate = isGrounded ? acceleration : airAcceleration;
 
-        rb.linearVelocity = new Vector2(
-            rb.linearVelocity.x + speedDiff * accelRate * Time.fixedDeltaTime,
-            rb.linearVelocity.y
-        );
+        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity + velAlongGravity, accelRate * Time.fixedDeltaTime);
     }
+
     private void HandleInput()
     {
         moveInput = 0f;
+        if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) moveInput = -1f;
+        if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) moveInput = 1f;
 
-        float yScale = Mathf.Abs(playerTransform.localScale.y) * (isUpsideDown ? -1f : 1f);
+        // Flip sprite perpendicular to gravity
+        if (animator)
+        {
+            Vector2 perp = Vector2.Perpendicular(-gravityDirection).normalized;
+            if (Vector2.Dot(perp, Vector2.right * moveInput) < 0)
+                animator.transform.localScale = new Vector3(-Mathf.Abs(animator.transform.localScale.x), animator.transform.localScale.y, animator.transform.localScale.z);
+            else if (Vector2.Dot(perp, Vector2.right * moveInput) > 0)
+                animator.transform.localScale = new Vector3(Mathf.Abs(animator.transform.localScale.x), animator.transform.localScale.y, animator.transform.localScale.z);
+        }
 
-        if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
-        {
-            moveInput = -1f;
-            playerTransform.localScale = new Vector3(Mathf.Abs(playerTransform.localScale.x), yScale, playerTransform.localScale.z);
-            AudioManager.PlayFoxMove();
-        }
-        else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
-        {
-            moveInput = 1f;
-            playerTransform.localScale = new Vector3(-Mathf.Abs(playerTransform.localScale.x), yScale, playerTransform.localScale.z);
-            AudioManager.PlayFoxMove();
-        }
+        if (moveInput != 0) AudioManager.PlayFoxMove();
     }
-
 
     private void RaycastGroundCheck()
     {
-        Vector2 direction = isUpsideDown ? Vector2.up : Vector2.down;
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, groundRaycastDistance, groundLayer);
-        Debug.DrawRay(transform.position, direction * groundRaycastDistance, Color.green);
-
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, gravityDirection, groundRaycastDistance, groundLayer);
+        Debug.DrawRay(transform.position, gravityDirection * groundRaycastDistance, Color.green);
         isGrounded = hit.collider != null;
     }
 
@@ -125,9 +122,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
-            float jumpDir = isUpsideDown ? -1f : 1f;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpDir);
-
+            rb.linearVelocity = -gravityDirection.normalized * jumpForce;
             jumpBufferCounter = 0f;
             coyoteTimeCounter = 0f;
         }
@@ -135,38 +130,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyBetterJumpPhysics()
     {
-        float gravityY = Physics2D.gravity.y;
+        Vector2 upDir = -gravityDirection.normalized;
+        float velAlongGravity = Vector2.Dot(rb.linearVelocity, gravityDirection);
 
-        if (!isUpsideDown)
-        {
-            if (rb.linearVelocity.y < 0f)
-                rb.linearVelocity += Vector2.up * gravityY * (fallMultiplier - 1) * Time.deltaTime;
-            else if (rb.linearVelocity.y > 0f &&
-                     !(Keyboard.current.spaceKey.isPressed || Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed))
-                rb.linearVelocity += Vector2.up * gravityY * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
-        else
-        {
-            if (rb.linearVelocity.y > 0f)
-                rb.linearVelocity += Vector2.up * -gravityY * (fallMultiplier - 1) * Time.deltaTime;
-            else if (rb.linearVelocity.y < 0f &&
-                     !(Keyboard.current.spaceKey.isPressed || Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed))
-                rb.linearVelocity += Vector2.up * -gravityY * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
+        if (velAlongGravity < 0)
+            rb.linearVelocity += upDir * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        else if (velAlongGravity > 0 && !(Keyboard.current.spaceKey.isPressed || Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed))
+            rb.linearVelocity += upDir * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
     }
 
     private void HandleDash()
     {
-        if ((Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame) &&
-            Time.time >= lastDashTime + dashCooldown &&
-            !isDashing)
+        if ((Keyboard.current.rightShiftKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame) &&
+            Time.time >= lastDashTime + dashCooldown && !isDashing)
         {
-            float dashDir = moveInput != 0 ? moveInput : (playerTransform.localScale.x > 0 ? 1 : -1);
             isDashing = true;
             dashEndTime = Time.time + dashDuration;
-            rb.linearVelocity = new Vector2(dashDir * dashSpeed, 0f);
             lastDashTime = Time.time;
 
+            Vector2 dashDir = Vector2.Perpendicular(-gravityDirection).normalized * (moveInput != 0 ? moveInput : 1f);
+            rb.linearVelocity = dashDir * dashSpeed;
             if (dashTrail) dashTrail.emitting = true;
         }
 
@@ -179,7 +162,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleAnimations()
     {
-        if (animator == null) return;
+        if (!animator) return;
         animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
+    }
+
+    // Call this to set new gravity (used by portal)
+    public void SetGravity(Vector2 newGravity)
+    {
+        gravityDirection = newGravity.normalized;
+        float angle = Mathf.Atan2(gravityDirection.y, gravityDirection.x) * Mathf.Rad2Deg - 90f;
+        playerTransform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }

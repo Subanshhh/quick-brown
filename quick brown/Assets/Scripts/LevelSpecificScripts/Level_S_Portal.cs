@@ -1,20 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SimplePortal : MonoBehaviour
+public class Level_S_Portal : MonoBehaviour
 {
-    [Tooltip("Gravity direction the player should have after entering this portal")]
-    public Vector2 gravityDirection = Vector2.down;
+    [Tooltip("New gravity direction for the player when entering this portal")]
+    //public Vector2 gravityDirection = Vector2.down;
 
-    private bool playerNearby = false;
     private WallWalkingCharacterController player;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            playerNearby = true;
             player = other.GetComponent<WallWalkingCharacterController>();
+            if (player == null)
+                Debug.LogError("Player has no WallWalkingCharacterController attached!");
         }
     }
 
@@ -22,16 +22,16 @@ public class SimplePortal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerNearby = false;
             player = null;
         }
     }
 
     private void Update()
     {
-        if (playerNearby && player != null && Keyboard.current.fKey.wasPressedThisFrame)
+        if (player == null) return;
+        if (Keyboard.current.fKey.wasPressedThisFrame)
         {
-            player.SetGravity(gravityDirection);
+            GameObject.Find("Grid").GetComponent<TilemapRotater>().RotateLevel(90);
         }
     }
 }

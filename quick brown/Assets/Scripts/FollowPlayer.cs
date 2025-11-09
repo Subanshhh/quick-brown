@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -30,7 +31,15 @@ public class CameraFollow : MonoBehaviour
         if (Mathf.Abs(diff.y) > deadZoneSize.y) camPos.y = player.position.y;
 
         // --- Look Ahead (anticipation) ---
-        float moveDir = Input.GetAxisRaw("Horizontal");
+        float moveDir = 0f;
+        if (Keyboard.current != null)
+        {
+            if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
+                moveDir = -1f;
+            else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
+                moveDir = 1f;
+        }
+
         Vector3 targetLookAhead = new Vector3(moveDir * lookAheadDistance, 0, 0);
         currentLookAhead = Vector3.Lerp(currentLookAhead, targetLookAhead, Time.deltaTime * lookAheadSpeed);
 
