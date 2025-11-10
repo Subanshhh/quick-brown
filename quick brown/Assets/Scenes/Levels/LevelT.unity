@@ -351,6 +351,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c00e41635618df94198010d0db71ff95, type: 3}
+--- !u!1 &444282645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7534892035208938595, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
+  m_PrefabInstance: {fileID: 1079371223294334653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &455234673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2504,6 +2509,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3476236341995942668, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
   m_PrefabInstance: {fileID: 1079371223294334653}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1480071350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444282645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd6883b7bb927e4788a7edcbce84452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  acceleration: 50
+  airAcceleration: 30
+  jumpForce: 14
+  dashSpeed: 20
+  dashDuration: 0.15
+  dashCooldown: 1
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 15
+  coyoteTime: 0.15
+  jumpBufferTime: 0.1
+  wallJumpLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  wallCheck: {fileID: 1856217868}
+  wallCheckRadius: 0.2
+  wallSlidingSpeed: 2
+  wallJumpingPower: {x: 8, y: 13}
+  wallJumpTime: 0.2
+  isUpsideDown: 0
+  groundRaycastDistance: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1001 &1598885519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9746,6 +9787,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2708139191401573295, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708139191401573295, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
       propertyPath: wallCheck
       value: 
       objectReference: {fileID: 1856217868}
@@ -9839,7 +9884,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3476236341995942668, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1856217868}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7534892035208938595, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1480071350}
   m_SourcePrefab: {fileID: 100100000, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
