@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 655472427186018361}
   - component: {fileID: 5452348488147807490}
   - component: {fileID: 2864748872356366522}
-  - component: {fileID: 1561666231262902993}
   - component: {fileID: 7363145221839757492}
+  - component: {fileID: 862749939815483517}
   m_Layer: 0
   m_Name: portal
   m_TagString: Untagged
@@ -127,19 +127,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.010886192, y: 0.0036286116}
   m_Size: {x: 2.3571243, y: 3.3223522}
   m_Direction: 0
---- !u!114 &1561666231262902993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968946382052006980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ec7b9de6a7ae749a2a766947173ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activateKey: 20
 --- !u!95 &7363145221839757492
 Animator:
   serializedVersion: 7
@@ -162,3 +149,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &862749939815483517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968946382052006980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ec7b9de6a7ae749a2a766947173ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateKey: 20

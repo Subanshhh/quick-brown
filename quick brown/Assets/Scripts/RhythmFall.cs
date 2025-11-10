@@ -19,6 +19,9 @@ public class PredefinedFallingObjects : MonoBehaviour
     [SerializeField] private GameObject backupEgg;
     private bool hasEgg = false;
 
+    int x = 0;
+
+
     void Start()
     {
         hasEgg = false;
@@ -30,12 +33,14 @@ public class PredefinedFallingObjects : MonoBehaviour
 
     IEnumerator SpawnEvent(FallingEvent ev)
     {
+
         yield return new WaitForSeconds(ev.spawnTime);
 
         // Instantiate object
         GameObject obj = Instantiate(ev.prefab);
         obj.transform.position = new Vector3(platformCenter.position.x + ev.xPosition, platformCenter.position.y + 5f, 0); // spawn above platform
-
+        print("Spawned " + obj.name + x);
+        x++;
         // Add Rigidbody2D if not already
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         if (rb == null)
