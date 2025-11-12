@@ -7,6 +7,7 @@ TagManager:
   - Egg
   - Deadly
   - Ground
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
