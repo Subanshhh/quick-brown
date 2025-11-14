@@ -45,10 +45,16 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Clouds
+  - name: BG BG BG Trees
+    uniqueID: 2376709771
+    locked: 0
+  - name: BG BG Trees
+    uniqueID: 749818343
+    locked: 0
+  - name: BG Trees
     uniqueID: 3076086841
     locked: 0
-  - name: Background
+  - name: Trees
     uniqueID: 3881443895
     locked: 0
   - name: Level
