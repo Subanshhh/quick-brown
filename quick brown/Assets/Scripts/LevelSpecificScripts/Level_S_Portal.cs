@@ -7,6 +7,7 @@ public class Level_S_Portal : MonoBehaviour
     //public Vector2 gravityDirection = Vector2.down;
 
     private WallWalkingCharacterController player;
+    [SerializeField] private int RotateDegree = 90;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -31,7 +32,7 @@ public class Level_S_Portal : MonoBehaviour
         if (player == null) return;
         if (Keyboard.current.fKey.wasPressedThisFrame)
         {
-            GameObject.Find("Grid").GetComponent<TilemapRotater>().RotateLevel(90);
+            GameObject.Find("Grid").GetComponent<TilemapRotater>().RotateLevel(RotateDegree);
         }
     }
 }
