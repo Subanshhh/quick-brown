@@ -415,7 +415,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3476236341995942668, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.68
       objectReference: {fileID: 0}
     - target: {fileID: 3476236341995942668, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -455,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3619917956985943245, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6524119281534640447, guid: 88c8efda91b271e4bad2d00050401d3d, type: 3}
       propertyPath: lowerThreshold
@@ -702,7 +702,7 @@ MonoBehaviour:
     xPosition: -1
     fallSpeed: 3
   - prefab: {fileID: 7250720710497690585, guid: 2777f2c8e85955c4f940c13520f1137d, type: 3}
-    spawnTime: 10.5
+    spawnTime: 9.8
     xPosition: 1
     fallSpeed: 3
   - prefab: {fileID: 1229601053069799607, guid: 66b4271fd49422a459d761f07e062886, type: 3}
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000395c59b737225ae7c5d192b5699b3658
+  m_ApplyToSortingLayers: 000000008bb6a98de751b12c395c59b737225ae7c5d192b5699b3658
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
