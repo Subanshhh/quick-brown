@@ -8,6 +8,7 @@ TagManager:
   - Deadly
   - Ground
   - Checkpoint
+  - LevelZ
   layers:
   - Default
   - TransparentFX

@@ -31,7 +31,7 @@ public class SimpleCheckpointRespawn : MonoBehaviour
             respawnPoint = collision.transform.position;
             Debug.Log("Checkpoint set at: " + respawnPoint);
         }
-        else if (collision.CompareTag("Deadly"))
+        else if (collision.CompareTag("LevelZ"))
         {
             Respawn();
         }
