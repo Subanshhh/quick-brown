@@ -88,7 +88,7 @@ public class PlayerMovementWallJump : MonoBehaviour
         HandleWallJump();
         HandleJump();
         HandleDash();
-        HandleAnimations();
+        //HandleAnimations();
         ApplyBetterJumpPhysics();
     }
 
@@ -190,12 +190,12 @@ public class PlayerMovementWallJump : MonoBehaviour
         }
     }
 
-    private void HandleAnimations()
-    {
-        if (animator == null) return;
-        animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
-        animator.SetBool("isWallSliding", isWallSliding);
-    }
+    //private void HandleAnimations()
+   // {
+       // if (animator == null) return;
+        //animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
+       // animator.SetBool("isWallSliding", isWallSliding);
+ //   }
 
     private bool IsWalled()
     {

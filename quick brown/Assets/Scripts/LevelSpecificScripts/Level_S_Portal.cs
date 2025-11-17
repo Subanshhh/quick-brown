@@ -6,7 +6,7 @@ public class Level_S_Portal : MonoBehaviour
     [Tooltip("New gravity direction for the player when entering this portal")]
     //public Vector2 gravityDirection = Vector2.down;
 
-    private WallWalkingCharacterController player;
+    public WallWalkingCharacterController player;
     [SerializeField] private int RotateDegree = 90;
 
     private void OnTriggerEnter2D(Collider2D other)
