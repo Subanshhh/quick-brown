@@ -88,13 +88,17 @@ public class PlayerMovementWallJump : MonoBehaviour
         HandleWallJump();
         HandleJump();
         HandleDash();
-        //HandleAnimations();
+        HandleAnimations();
         ApplyBetterJumpPhysics();
     }
 
     void FixedUpdate()
     {
         if (isDashing || isWallJumping) return;
+
+        // Apply custom gravity manually
+        rb.linearVelocity += Physics2D.gravity * Time.fixedDeltaTime;
+
 
         float targetSpeed = moveInput * moveSpeed;
         float speedDiff = targetSpeed - rb.linearVelocity.x;
@@ -132,6 +136,19 @@ public class PlayerMovementWallJump : MonoBehaviour
         Debug.DrawRay(transform.position, direction * groundRaycastDistance, Color.green);
 
         isGrounded = hit.collider != null;
+    }
+
+    public void SetGravityDirection(Vector2 newGravity)
+    {
+        Physics2D.gravity = newGravity * 9.81f;
+
+        // Rotate the player so feet point towards gravity
+        Vector2 down = -newGravity;
+        float angle = Mathf.Atan2(down.y, down.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
+
+        // Update upside-down flag
+        isUpsideDown = (newGravity.y > 0);
     }
 
     private void HandleJump()
@@ -190,12 +207,12 @@ public class PlayerMovementWallJump : MonoBehaviour
         }
     }
 
-    //private void HandleAnimations()
-   // {
-       // if (animator == null) return;
-        //animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
-       // animator.SetBool("isWallSliding", isWallSliding);
- //   }
+    private void HandleAnimations()
+   {
+        if (animator == null) return;
+        animator.SetBool("isWalking", Mathf.Abs(moveInput) > 0.1f);
+        //animator.SetBool("isWallSliding", isWallSliding);
+  }
 
     private bool IsWalled()
     {
