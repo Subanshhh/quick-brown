@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class NPCDialogue : MonoBehaviour
@@ -6,9 +6,14 @@ public class NPCDialogue : MonoBehaviour
     [TextArea(3, 10)]
     public string[] dialogueLines;
 
-    public GameObject fPrompt;   // assign your �F� prompt UI
+    public GameObject fPrompt;   // assign your “F” prompt UI
+    public AudioClip[] npcSFX;   // multiple random SFX for this NPC
+
     private int index = 0;
     private bool playerInRange = false;
+    private bool dialogueStarted = false;
+
+    public string npcName;   // Name that appears in the UI
 
     private void Start()
     {
@@ -20,7 +25,30 @@ public class NPCDialogue : MonoBehaviour
     {
         if (playerInRange && Keyboard.current.fKey.wasPressedThisFrame)
         {
-            DialogueManager.Instance.ShowNextLine(dialogueLines, ref index);
+            // FIRST TIME PRESSING F — start dialogue
+            if (!dialogueStarted)
+            {
+                dialogueStarted = true;
+                DialogueManager.Instance.BeginDialogue();
+                DialogueManager.Instance.SetName(npcName);
+            }
+
+            // Randomize NPC SFX if assigned
+            if (npcSFX != null && npcSFX.Length > 0)
+            {
+                int rand = Random.Range(0, npcSFX.Length);
+                AudioManager.PlaySFXStatic(npcSFX[rand]);
+            }
+
+            // Show next line
+            bool ended = DialogueManager.Instance.ShowNextLine(dialogueLines, ref index);
+
+            // Reset once dialogue ends
+            if (ended)
+            {
+                dialogueStarted = false;
+                index = 0;
+            }
         }
     }
 
@@ -41,10 +69,14 @@ public class NPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+
             DialogueManager.Instance.HideDialogue();
 
             if (fPrompt != null)
                 fPrompt.SetActive(false);
+
+            dialogueStarted = false;
+            index = 0;
         }
     }
 }

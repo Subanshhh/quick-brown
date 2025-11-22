@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
+  typeSpeed: 0.05

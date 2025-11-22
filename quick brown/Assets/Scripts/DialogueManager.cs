@@ -1,90 +1,128 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
 
     [Header("UI References")]
-    public GameObject dialogueBox;
+    public GameObject dialoguePanel;
     public TMP_Text dialogueText;
 
-    [Header("Typewriter Settings")]
-    public float typingSpeed = 0.03f;
+    [Header("Typing Settings")]
+    public float typeSpeed = 0.03f;
 
-    private Coroutine typingCoroutine;
     private bool isTyping = false;
+
+    // Support both movement scripts
+    private PlayerMovement normalMove;
+    private PlayerMovementWallJump wallMove;
+    public TMP_Text nameText;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        dialogueBox.SetActive(false);
+        // Find whichever player movement exists in the scene
+        normalMove = FindFirstObjectByType<PlayerMovement>();
+        wallMove = FindFirstObjectByType<PlayerMovementWallJump>();
+
+        dialoguePanel?.SetActive(false);
     }
 
-    public void ShowNextLine(string[] lines, ref int index)
+    private void SetMovement(bool state)
     {
-        dialogueBox.SetActive(true);
+        if (normalMove != null) normalMove.canMove = state;
+        if (wallMove != null) wallMove.canMove = state;
+    }
 
-        // If still typing → finish instantly on F press
-        if (isTyping)
-        {
-            CompleteTyping();
-            return;
-        }
+    public void BeginDialogue()
+    {
+        SetMovement(false); // Freeze player
+    }
 
-        // If finished last line → close window
+    public void EndDialogue()
+    {
+        SetMovement(true); // Unfreeze player
+        HideDialogue();
+    }
+
+    /// <summary>
+    /// Show the next line of dialogue. Returns true if dialogue is finished.
+    /// </summary>
+    public bool ShowNextLine(string[] lines, ref int index)
+    {
+        if (dialoguePanel != null && !dialoguePanel.activeSelf)
+            dialoguePanel.SetActive(true);
+
+        // All lines finished
         if (index >= lines.Length)
         {
-            HideDialogue();
-            return;
+            EndDialogue();
+            return true;
         }
 
-        // Start typing next line
-        StartTyping(lines[index]);
+        // Start typing line
+        StopAllCoroutines();
+        StartCoroutine(TypeLine(lines[index]));
         index++;
+
+        return false;
     }
 
-    private void StartTyping(string line)
-    {
-        if (typingCoroutine != null)
-            StopCoroutine(typingCoroutine);
-
-        typingCoroutine = StartCoroutine(TypewriterEffect(line));
-    }
-
-    private IEnumerator TypewriterEffect(string line)
+    /// <summary>
+    /// Type a single line letter by letter without skipping or breaking lines.
+    /// </summary>
+    private IEnumerator TypeLine(string line)
     {
         isTyping = true;
-        dialogueText.text = "";
 
-        foreach (char c in line)
+        // Step 1: Put entire line first so TMP lays it out once
+        dialogueText.text = line;
+
+        // Step 2: Hide it by showing 0 characters
+        dialogueText.maxVisibleCharacters = 0;
+
+        int totalChars = line.Length;
+
+        // Step 3: Reveal gradually
+        for (int i = 0; i < totalChars; i++)
         {
-            dialogueText.text += c;
-            yield return new WaitForSeconds(typingSpeed);
+            dialogueText.maxVisibleCharacters = i + 1;
+            yield return new WaitForSeconds(typeSpeed);
         }
 
         isTyping = false;
     }
 
-    private void CompleteTyping()
-    {
-        // Finish instantly
-        StopCoroutine(typingCoroutine);
-        typingCoroutine = null;
-
-        // Reveal full line
-        dialogueText.maxVisibleCharacters = int.MaxValue;
-        dialogueText.text = dialogueText.text = dialogueText.text; // just forces refresh
-
-        isTyping = false;
-    }
 
     public void HideDialogue()
     {
-        dialogueBox.SetActive(false);
+        StopAllCoroutines();
+        dialoguePanel?.SetActive(false);
         dialogueText.text = "";
+        dialogueText.maxVisibleCharacters = 0;
+
     }
+
+    /// <summary>
+    /// Optional: Instantly finish typing current line if player presses key
+    /// </summary>
+    public void SkipTyping(string currentLine)
+    {
+        if (isTyping)
+        {
+            StopAllCoroutines();
+            dialogueText.text = currentLine;
+            isTyping = false;
+        }
+    }
+    public void SetName(string n)
+    {
+        if (nameText != null)
+            nameText.text = n;
+    }
+
 }

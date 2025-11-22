@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
+    public bool canMove = true;
+
 
     void Start()
     {
@@ -92,6 +94,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void HandleInput()
     {
+        if (!canMove)
+        {
+            moveInput = 0f;
+            return;
+        }
         moveInput = 0f;
 
         float yScale = Mathf.Abs(playerTransform.localScale.y) * (isUpsideDown ? -1f : 1f);
@@ -108,6 +115,8 @@ public class PlayerMovement : MonoBehaviour
             playerTransform.localScale = new Vector3(-Mathf.Abs(playerTransform.localScale.x), yScale, playerTransform.localScale.z);
             AudioManager.PlayFoxMove();
         }
+       
+        
     }
 
 
@@ -123,6 +132,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
+        if (!canMove) return;
+
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
             float jumpDir = isUpsideDown ? -1f : 1f;
@@ -157,6 +168,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleDash()
     {
+        if (!canMove) return;
+
         if ((Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame) &&
             Time.time >= lastDashTime + dashCooldown &&
             !isDashing)

@@ -57,6 +57,9 @@ public class PlayerMovementWallJump : MonoBehaviour
     public float groundRaycastDistance = 0.2f;
     public LayerMask groundLayer;
 
+    public bool canMove = true;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -112,6 +115,12 @@ public class PlayerMovementWallJump : MonoBehaviour
 
     private void HandleInput()
     {
+        if (!canMove)
+        {
+            moveInput = 0f;
+            return;
+        }
+        
         moveInput = 0f;
 
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
@@ -126,7 +135,9 @@ public class PlayerMovementWallJump : MonoBehaviour
             if (!isWallJumping) playerTransform.localScale = new Vector3(-1f, playerTransform.localScale.y, 1f);
             AudioManager.PlayFoxMove();
         }
+       
     }
+
 
     private void RaycastGroundCheck()
     {
@@ -153,6 +164,8 @@ public class PlayerMovementWallJump : MonoBehaviour
 
     private void HandleJump()
     {
+        if (!canMove) return;
+
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f && !isWallSliding)
         {
             float jumpDir = isUpsideDown ? -1f : 1f;
@@ -187,6 +200,8 @@ public class PlayerMovementWallJump : MonoBehaviour
 
     private void HandleDash()
     {
+        if (!canMove) return;
+
         if ((Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame) &&
             Time.time >= lastDashTime + dashCooldown &&
             !isDashing)
