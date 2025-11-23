@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3a1bebf7495f6df409e3e9ad5e8dfa81
+guid: c6d3341615cbc1c4c9066a29894fc82b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5264814681155235330
-    second: FoxWalking_0_0
+      213: -9085724248847954749
+    second: Fungo_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 620
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FoxWalking_0_0
+      name: Fungo_1_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 86
-        width: 566
-        height: 551
+        x: 0
+        y: 0
+        width: 15
+        height: 19
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 1}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 20ee48eee01601940800000000000000
-      internalID: 5264814681155235330
+      spriteID: 3ccc3441fe509e180800000000000000
+      internalID: -9085724248847954749
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 78bd44d89ec4dfe4da84a209994a0267
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FoxWalking_0_0: 5264814681155235330
+      Fungo_1_0: -9085724248847954749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
