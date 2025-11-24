@@ -22352,20 +22352,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
       propertyPath: dialogueLines.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
       propertyPath: 'dialogueLines.Array.data[0]'
+      value: 'I CAN''T STOP
+
+        THE LONELINESS'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
+      propertyPath: 'dialogueLines.Array.data[1]'
       value: a little ghost? no, its a fox!!! its good to see animals that are safe
         from scrumption :)
       objectReference: {fileID: 0}
     - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
-      propertyPath: 'dialogueLines.Array.data[1]'
+      propertyPath: 'dialogueLines.Array.data[2]'
       value: can you pls try to eradicate this phenomenon from the forest so i can
         go back to being the baddie spider i used to be
       objectReference: {fileID: 0}
     - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
-      propertyPath: 'dialogueLines.Array.data[2]'
+      propertyPath: 'dialogueLines.Array.data[3]'
       value: 'i have my hometown pharnest to save from the grandiance '
       objectReference: {fileID: 0}
     - target: {fileID: 3603302560264876207, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
