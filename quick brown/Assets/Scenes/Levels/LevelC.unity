@@ -4445,6 +4445,18 @@ PrefabInstance:
       value: Kim Speed
       objectReference: {fileID: 0}
     - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
+      propertyPath: npcSFX.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
+      propertyPath: 'npcSFX.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b524c2ff6d090d846a61c46b4cc4426c, type: 3}
+    - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
+      propertyPath: 'npcSFX.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: dfb0ce7e81d990949b113b5985cda262, type: 3}
+    - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
       propertyPath: dialogueLines.Array.size
       value: 3
       objectReference: {fileID: 0}
