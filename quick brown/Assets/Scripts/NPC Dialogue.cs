@@ -33,24 +33,26 @@ public class NPCDialogue : MonoBehaviour
                 DialogueManager.Instance.SetName(npcName);
             }
 
-            // Randomize NPC SFX if assigned
+            // Show next line FIRST
+            bool ended = DialogueManager.Instance.ShowNextLine(dialogueLines, ref index);
+
+            // If dialogue ended, reset and STOP — don't play SFX
+            if (ended)
+            {
+                dialogueStarted = false;
+                index = 0;
+                return;    // 🚀 This prevents audio from playing
+            }
+
+            // Only here — play SFX for new line
             if (npcSFX != null && npcSFX.Length > 0)
             {
                 int rand = Random.Range(0, npcSFX.Length);
                 AudioManager.PlaySFXStatic(npcSFX[rand]);
             }
-
-            // Show next line
-            bool ended = DialogueManager.Instance.ShowNextLine(dialogueLines, ref index);
-
-            // Reset once dialogue ends
-            if (ended)
-            {
-                dialogueStarted = false;
-                index = 0;
-            }
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

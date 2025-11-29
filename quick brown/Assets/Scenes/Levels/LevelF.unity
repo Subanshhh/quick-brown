@@ -3677,8 +3677,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
       propertyPath: npcSFX.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
+      propertyPath: 'npcSFX.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d3451c04d9553524aae7d341936a3aea, type: 3}
+    - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
+      propertyPath: 'npcSFX.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5624f7cae71dbec4b96e6224f9f9eb0a, type: 3}
     - target: {fileID: 2973829327230885222, guid: 6d62d4a4e80eefd4c8082eda54f3495f, type: 3}
       propertyPath: dialogueLines.Array.size
       value: 3
